@@ -1,0 +1,27 @@
+required:
+  - name
+  - systemRole
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Full name of the role
+  systemRole:
+    type: string
+    description: Base System Role
+    enum:
+      - OWNER
+      - ADMIN
+      - MANAGER
+      - EMPLOYEE
+  employeesRef:
+    type: array
+    description: employees with this role
+    items:
+      $ref: ./Reference.yaml
+  merchant:
+    description: The merchant this role belongs to.
+    $ref: ./Reference.yaml

@@ -1,0 +1,83 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a single tax rate
+  description: ''
+  operationId: taxrate.GetTaxRate
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: taxId
+      in: path
+      description: Tax Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TaxRate.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update a single tax rate
+  description: ''
+  operationId: taxrate.UpdateTaxRate
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: taxId
+      in: path
+      description: Tax Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/TaxRate.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete a single tax rate
+  description: ''
+  operationId: taxrate.DeleteTaxRate
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: taxId
+      in: path
+      description: Tax Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

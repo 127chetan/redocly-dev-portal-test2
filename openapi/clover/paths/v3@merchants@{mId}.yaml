@@ -1,0 +1,63 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a single merchant
+  description: ''
+  operationId: merchant.GetMerchant
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [employees, bankProcessing, externalMerchant,
+        merchantBoarding, deviceBoarding, programExpress, hierarchy, shifts,
+        orders, address, logos, owner, items, tags, tenders, payments, gateway,
+        printers, modifierGroups, properties, tipSuggestions, openingHours,
+        partnerApp, selfBoardingApplication, enterprises, equipment]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Merchant.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Update a merchant
+  description: ''
+  operationId: merchant.UpdateMerchant
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [employees, bankProcessing, externalMerchant,
+        merchantBoarding, deviceBoarding, programExpress, hierarchy, shifts,
+        orders, address, logos, owner, items, tags, tenders, payments, gateway,
+        printers, modifierGroups, properties, tipSuggestions, openingHours,
+        partnerApp, selfBoardingApplication, enterprises, equipment]
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Merchant.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

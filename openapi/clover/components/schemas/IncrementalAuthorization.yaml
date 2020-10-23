@@ -1,0 +1,37 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  amount:
+    type: integer
+    description: 'Amount of the incremental authorization, includes additional charges in db'
+    format: int64
+  cardTransaction:
+    $ref: ./CardTransaction.yaml
+  result:
+    type: string
+    description: Result of the incremental auth
+    enum:
+      - SUCCESS
+      - FAIL
+      - INITIATED
+      - VOIDED
+      - VOIDING
+      - VOID_FAILED
+      - AUTH
+      - AUTH_COMPLETED
+      - DISCOUNT
+      - OFFLINE_RETRYING
+      - PENDING
+  createdTime:
+    type: integer
+    description: Created time on the server
+    format: int64
+  employee:
+    description: The employee who processed the incremental Auth
+    $ref: ./Reference.yaml
+  incrementAmount:
+    type: integer
+    description: Amount of the incremental authorization
+    format: int64

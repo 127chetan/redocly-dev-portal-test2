@@ -1,0 +1,83 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a single attribute
+  description: ''
+  operationId: inventory.GetAttribute
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: attributeId
+      in: path
+      description: Attribute Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update a single attribute
+  description: ''
+  operationId: inventory.UpdateAttribute
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: attributeId
+      in: path
+      description: Attribute Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [options]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Attribute.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete a single attribute
+  description: ''
+  operationId: inventory.DeleteAttribute
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: attributeId
+      in: path
+      description: Attribute Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

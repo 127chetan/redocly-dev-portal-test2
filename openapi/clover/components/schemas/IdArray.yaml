@@ -1,0 +1,7 @@
+type: object
+properties:
+  ids:
+    type: array
+    description: List of ids
+    items:
+      $ref: ./Reference.yaml

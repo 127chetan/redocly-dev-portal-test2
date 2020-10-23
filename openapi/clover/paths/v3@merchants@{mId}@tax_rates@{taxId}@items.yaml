@@ -1,0 +1,40 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get items by tax rate
+  description: ''
+  operationId: taxrate.GetItemsByTaxRate
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: taxId
+      in: path
+      description: Tax Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, hidden, itemCode, tags.id, alternateName,
+        option.id, isRevenue, tags.name, deleted, item.id, price, name, id, sku,
+        itemGroup.id]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Item.yaml
+  deprecated: false

@@ -1,0 +1,32 @@
+post:
+  tags:
+    - NOTIFICATIONS
+  summary: Create a notification for a device
+  description: >-
+    Push a message to a device that has your app installed and is listening for
+    notifications.  For details on how to use Clover's Android SDK to receive
+    notifications see:
+    https://github.com/clover/android-examples/tree/master/pushnotificationexample
+  operationId: apps.CreateDeviceAppNotification
+  parameters:
+    - name: appId
+      in: path
+      description: App Id
+      required: true
+      schema:
+        type: string
+    - name: deviceId
+      in: path
+      description: Device Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/AppNotification.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

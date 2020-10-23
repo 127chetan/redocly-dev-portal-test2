@@ -1,0 +1,23 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a sync token (deprecated)
+  description: ''
+  operationId: sync.GetSyncToken
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: table
+      in: path
+      description: Table Name
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: true

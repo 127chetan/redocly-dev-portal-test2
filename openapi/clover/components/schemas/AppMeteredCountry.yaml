@@ -1,0 +1,30 @@
+required:
+  - action
+  - amount
+  - country
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  action:
+    type: string
+    description: App metered action
+  amount:
+    type: integer
+    description: The cost of the metered country
+    format: int64
+  country:
+    type: string
+    description: The country of the metered country
+  active:
+    type: boolean
+    description: App metered country active status
+  appMetered:
+    description: Reference to metered this metered country belongs to
+    $ref: ./Reference.yaml
+  locales:
+    type: array
+    description: List of locale specific metered country resources.
+    items:
+      $ref: ./Reference.yaml

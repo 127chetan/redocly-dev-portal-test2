@@ -1,0 +1,36 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  taxType:
+    type: string
+    description: to support Argentina's tax type
+    enum:
+      - VAT_TAXABLE
+      - VAT_NON_TAXABLE
+      - VAT_EXEMPT
+      - INTERNAL_TAX
+  rate:
+    type: integer
+    description: For percentage based discounts like sales tax
+    format: int64
+  isDefault:
+    type: boolean
+  items:
+    type: array
+    description: Items associated with this tax rate
+    items:
+      $ref: ./Reference.yaml
+  taxAmount:
+    type: integer
+    description: 'For a flat tax like recycling redemption fee, expressed as number of cents'
+  deletedTime:
+    type: integer
+    description: Timestamp when tax rate was last deleted
+  modifiedTime:
+    type: integer
+    description: Timestamp when tax rate was last modified

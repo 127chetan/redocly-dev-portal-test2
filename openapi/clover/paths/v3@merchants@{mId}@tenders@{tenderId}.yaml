@@ -1,0 +1,78 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a single merchant tender
+  description: ''
+  operationId: pay.GetMerchantTender
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tenderId
+      in: path
+      description: Tender Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tender.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Updates an existing tender
+  description: Returns an object representing updated merchant tender.
+  operationId: pay.UpdateMerchantTender
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tenderId
+      in: path
+      description: Tender Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Tender.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - MERCHANTS
+  summary: Deletes an existing tender
+  description: ''
+  operationId: pay.DeleteMerchantTender
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tenderId
+      in: path
+      description: Tender Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,79 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a specific set of merchant opening hours
+  description: ''
+  operationId: merchant.GetMerchantOpeningHours
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: hId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/HoursSet.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Update a set of merchant opening hours
+  description: ''
+  operationId: merchant.UpdateMerchantOpeningHours
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: hId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/HoursSet.yaml
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/HoursSet.yaml
+  deprecated: false
+delete:
+  tags:
+    - MERCHANTS
+  summary: Delete a set of merchant opening hours
+  description: ''
+  operationId: merchant.DeleteMerchantOpeningHours
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: hId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

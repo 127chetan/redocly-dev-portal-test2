@@ -1,0 +1,54 @@
+type: object
+properties:
+  taxAmount:
+    type: integer
+    description: Sales tax amount.
+    format: int64
+  taxIndicator:
+    type: string
+    description: Taxable status
+    enum:
+      - UNKNOWN
+      - TAXABLE
+      - NON_TAXABLE
+  vatTaxAmount:
+    type: integer
+    description: Tax amount for freight/shipping.
+    format: int64
+  vatTaxRate:
+    type: integer
+    description: Tax rate on freight/shipping amount.
+    format: int32
+  purchaseIdentifier:
+    type: string
+    description: Purchase identifier for customer/merchant.
+  pcOrderNumber:
+    type: string
+    description: Purchase card customer code.
+  discountAmount:
+    type: integer
+    description: Applied discount amount.
+    format: int64
+  freightAmount:
+    type: integer
+    description: Freight amount.
+    format: int64
+  dutyAmount:
+    type: integer
+    description: Duty amount.
+    format: int64
+  destinationPostalCode:
+    type: string
+    description: Destination postal code.
+  shipFromPostalCode:
+    type: string
+    description: Ship from postal code.
+  destinationCountryCode:
+    type: string
+    description: Destination country code.
+  merchantTaxId:
+    type: string
+    description: Merchant tax id.
+  productDescription:
+    type: string
+    description: Description of the product.

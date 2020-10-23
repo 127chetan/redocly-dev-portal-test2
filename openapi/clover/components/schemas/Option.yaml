@@ -1,0 +1,17 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Name of the option
+  attribute:
+    $ref: ./Reference.yaml
+  items:
+    type: array
+    description: Items associated with this option
+    items:
+      $ref: ./Reference.yaml

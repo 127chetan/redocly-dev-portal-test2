@@ -1,0 +1,29 @@
+get:
+  tags:
+    - ORDERS
+  summary: Get summary about line items and orders which were deleted
+  description: ''
+  operationId: handler.GetVoidedLineItemsTotals
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [reason, quantity, orderId, revenueClassName, deleteType,
+        isRevenue, approvedByUuid, sortByName, printed, orderType.id, price,
+        name, showInReporting, lineItemUuid, id, deletedTime]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/VoidedItemsSummary.yaml
+  deprecated: false

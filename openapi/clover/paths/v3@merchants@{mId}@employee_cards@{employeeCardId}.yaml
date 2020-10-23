@@ -1,0 +1,44 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get a single employee card
+  description: ''
+  operationId: card.GetEmployeeCard
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: employeeCardId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - EMPLOYEES
+  summary: Delete a single employee card
+  description: ''
+  operationId: card.DeleteEmployeeCard
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: employeeCardId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,48 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all discounts
+  description: ''
+  operationId: inventory.GetDiscounts
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [amount, modifiedtime, percentage, id]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create a discount
+  description: ''
+  operationId: inventory.CreateDiscount
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Discount.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

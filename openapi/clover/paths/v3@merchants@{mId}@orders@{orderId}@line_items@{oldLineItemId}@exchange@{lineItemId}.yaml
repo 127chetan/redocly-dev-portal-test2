@@ -1,0 +1,40 @@
+post:
+  tags:
+    - ORDERS
+  summary: Create or exchange a line item
+  description: ''
+  operationId: order.SetOrderLineItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: oldLineItemId
+      in: path
+      description: Old Line Item Id
+      required: true
+      schema:
+        type: string
+    - name: lineItemId
+      in: path
+      description: Line Item Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/LineItem.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

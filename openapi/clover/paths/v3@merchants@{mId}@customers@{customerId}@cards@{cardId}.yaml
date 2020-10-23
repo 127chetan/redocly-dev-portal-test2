@@ -1,0 +1,59 @@
+post:
+  tags:
+    - CUSTOMERS
+  summary: Update a credit/debit card record for a customer
+  description: ''
+  operationId: handlers.UpdateCustomerCard
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: cardId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Card.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - CUSTOMERS
+  summary: Delete a customer card
+  description: ''
+  operationId: handlers.DeleteCustomerCard
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: cardId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

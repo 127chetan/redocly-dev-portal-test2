@@ -1,0 +1,53 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get all roles from a merchant
+  description: ''
+  operationId: role.GetRoles
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [modifiedTime, systemRole, name, id, deletedTime]'
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [employees]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Role.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Create a role
+  description: ''
+  operationId: role.CreateRole
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Role.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,68 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get all shifts for an employee
+  description: ''
+  operationId: employee.GetEmployeeShifts
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [employee.id, out_time, in_time, employee.name,
+        in_and_override_time, out_and_override_time, id, has_in_time,
+        override_in_time, deletedTime, server_banking]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Shift.yaml
+  deprecated: false
+post:
+  tags:
+    - EMPLOYEES
+  summary: Create shift for an employee
+  description: ''
+  operationId: employee.CreateShift
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Shift.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

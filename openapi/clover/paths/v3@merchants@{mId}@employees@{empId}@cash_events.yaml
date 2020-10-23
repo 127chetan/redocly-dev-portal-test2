@@ -1,0 +1,42 @@
+get:
+  tags:
+    - CASH
+  summary: Get all cash events for an employee
+  description: >-
+    Retrieve cash events filtered by employee ID. Cash events can also be
+    consumed by registering a Webhook callback. See
+    https://docs.clover.com/build/webhooks/
+  operationId: cash.GetEmployeeCashEvents
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [employee.id, note, amountChange, employee.name, type,
+        device.id, timestamp]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [employee, device]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CashEvent.yaml
+  deprecated: false

@@ -1,0 +1,13 @@
+type: object
+properties:
+  hasModifiers:
+    type: boolean
+    description: flag to indicate if any line item has modifiers
+  chartData:
+    type: array
+    description: revenue classes data
+    items:
+      $ref: ./VoidedItemsChartData.yaml
+  chartTotals:
+    description: totals of all the chart data
+    $ref: ./VoidedItemsChartData.yaml

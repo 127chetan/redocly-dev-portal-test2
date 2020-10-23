@@ -1,0 +1,155 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  order:
+    description: The order with which the payment is associated
+    $ref: ./Reference.yaml
+  device:
+    description: >-
+      Device which processed the transaction for this payment, a 128-bit UUID,
+      not a normal base-13 Clover ID.
+    $ref: ./Reference.yaml
+  tender:
+    description: 'The tender type associated with this payment, e.g. credit card, cash, etc.'
+    $ref: ./Tender.yaml
+  amount:
+    type: integer
+    description: Total amount paid
+    format: int64
+  tipAmount:
+    type: integer
+    description: Amount paid in tips
+  taxAmount:
+    type: integer
+    description: Amount paid in tax
+  cashbackAmount:
+    type: integer
+    description: Amount given back in a cash back transaction
+  cashTendered:
+    type: integer
+    description: Amount of cash given by the customer
+  externalPaymentId:
+    type: string
+  employee:
+    description: The employee who processed the payment
+    $ref: ./Reference.yaml
+  createdTime:
+    type: integer
+    description: Time payment was recorded on server
+    format: int64
+  clientCreatedTime:
+    type: integer
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Last modified time of the payment
+    format: int64
+  offline:
+    type: boolean
+    default: 'false'
+  result:
+    type: string
+    enum:
+      - SUCCESS
+      - FAIL
+      - INITIATED
+      - VOIDED
+      - VOIDING
+      - VOID_FAILED
+      - AUTH
+      - AUTH_COMPLETED
+      - DISCOUNT
+      - OFFLINE_RETRYING
+      - PENDING
+  cardTransaction:
+    description: Information about the card used for credit/debit card payments
+    $ref: ./CardTransaction.yaml
+  serviceCharge:
+    description: Amount record as a service charge
+    $ref: ./ServiceChargeAmount.yaml
+  attributes:
+    type: object
+    properties:
+      default:
+        type: string
+  additionalCharges:
+    type: array
+    items:
+      $ref: ./AdditionalChargeAmount.yaml
+  taxRates:
+    type: array
+    items:
+      $ref: ./PaymentTaxRate.yaml
+  refunds:
+    type: array
+    items:
+      $ref: ./Refund.yaml
+  note:
+    type: string
+  lineItemPayments:
+    type: array
+    items:
+      $ref: ./LineItemPayment.yaml
+  authorization:
+    description: >-
+      Authorization which this payment is associated to (opening or closing
+      payment) if one exists
+    $ref: ./Reference.yaml
+  voidPaymentRef:
+    description: 'If voided, the corresponding successful payment, and vice versa'
+    $ref: ./Reference.yaml
+  voidReason:
+    type: string
+    description: 'If voided, the reason why (when available)'
+    enum:
+      - USER_CANCEL
+      - TRANSPORT_ERROR
+      - REJECT_SIGNATURE
+      - REJECT_PARTIAL_AUTH
+      - NOT_APPROVED
+      - FAILED
+      - AUTH_CLOSED_NEW_CARD
+      - DEVELOPER_PAY_PARTIAL_AUTH
+      - REJECT_DUPLICATE
+      - REJECT_OFFLINE
+      - GIFTCARD_LOAD_FAILED
+      - USER_GIFTCARD_LOAD_CANCEL
+      - DEVELOPER_PAY_TIP_ADJUST_FAILED
+      - USER_CUSTOMER_CANCEL
+      - FRAUD
+      - REJECT_GREATER_APPROVED_AMOUNT
+  dccInfo:
+    description: Dynamic Currency Conversion information
+    $ref: ./DCCInfo.yaml
+  transactionSettings:
+    description: Per transaction settings for the payment
+    $ref: ./TransactionSettings.yaml
+  germanInfo:
+    description: German region-specific information
+    $ref: ./GermanInfo.yaml
+  appTracking:
+    description: Tracking information for the app that created this payment.
+    $ref: ./AppTracking.yaml
+  cashAdvanceExtra:
+    description: Information specific to cash advance transactions.
+    $ref: ./CashAdvanceExtra.yaml
+  transactionInfo:
+    description: Transaction information
+    $ref: ./TransactionInfo.yaml
+  signatureDisclaimer:
+    description: Information displayed to customer for storing electronic signatures
+    $ref: ./SignatureDisclaimer.yaml
+  externalReferenceId:
+    type: string
+    description: The external reference id if associated with the payment
+  merchant:
+    $ref: ./Reference.yaml
+  increments:
+    type: array
+    items:
+      $ref: ./IncrementalAuthorization.yaml
+  purchaseCardL2:
+    description: Purchase card level 2 data
+    $ref: ./PurchaseCardL2.yaml

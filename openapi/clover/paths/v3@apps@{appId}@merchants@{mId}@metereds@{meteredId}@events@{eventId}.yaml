@@ -1,0 +1,81 @@
+get:
+  tags:
+    - APPS
+  summary: Get an app billing metered event
+  description: >-
+    Returns the event details on a merchant's app billing metered event.
+    Requires an OAuth generated token.See the documentation:
+    https://docs.clover.com/clover-platform/docs/configuring-billing#section-metered-pricing
+  operationId: apps.GetMerchantAppMeteredEvent
+  parameters:
+    - name: appId
+      in: path
+      description: App Id
+      required: true
+      schema:
+        type: string
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: meteredId
+      in: path
+      description: Metered Id
+      required: true
+      schema:
+        type: string
+    - name: eventId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AppMeteredEvent.yaml
+  deprecated: false
+delete:
+  tags:
+    - APPS
+  summary: Delete app billing metered event
+  description: >-
+    Deletes an app metered event if the event was not already billed. Requires
+    an OAuth generated token.
+  operationId: apps.DeleteMerchantAppMeteredEvent
+  parameters:
+    - name: appId
+      in: path
+      description: App Id
+      required: true
+      schema:
+        type: string
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: meteredId
+      in: path
+      description: Metered Id
+      required: true
+      schema:
+        type: string
+    - name: eventId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AppMeteredEvent.yaml
+  deprecated: false

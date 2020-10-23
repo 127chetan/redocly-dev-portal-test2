@@ -1,0 +1,113 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all options with a given attribute
+  description: ''
+  operationId: inventory.GetOptionsByAttribute.copy
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: attributeId
+      in: path
+      description: Attribute Id
+      required: true
+      schema:
+        type: string
+    - name: optionId
+      in: path
+      description: Option Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, item.id, name, attribute.id, id,
+        deletedTime]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: []'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Option.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update an option
+  description: ''
+  operationId: inventory.UpdateOption
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: attributeId
+      in: path
+      description: Attribute Id
+      required: true
+      schema:
+        type: string
+    - name: optionId
+      in: path
+      description: Option Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: []'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Option.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete an option
+  description: ''
+  operationId: inventory.DeleteOption
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: attributeId
+      in: path
+      description: Attribute Id
+      required: true
+      schema:
+        type: string
+    - name: optionId
+      in: path
+      description: Option Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

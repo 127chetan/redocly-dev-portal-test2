@@ -1,0 +1,69 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get all order types for a merchant
+  description: >-
+    Merchants have the ability to create custom order types via the Setup App
+    (https://www.clover.com/setupapp). These custom order types can be
+    associated with a System Order Type (see
+    /v3/merchants/{mId}/system_order_types). Custom Order Types can support
+    items in all categories (filterCategories=false) or a subset of the
+    merchant's categories (filterCategories=true and categories property
+    contains the list of supported categories). Note that when expanding the
+    categories for an order type, they will only be returned if this orderType
+    only supports a subset of the categories (filterCategories=true). If the
+    orderType supports all categories (filterCategories=false) then you should
+    make a GET request to /v3/merchants/{mId}/categories.
+  operationId: merchant.GetOrderTypes
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [id, deletedTime]'
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [hours, attributes, categories]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrderType.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Create Order Type For Merchant
+  description: ''
+  operationId: merchant.CreateOrderType
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [hours, attributes, categories]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrderType.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

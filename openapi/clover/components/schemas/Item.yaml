@@ -1,0 +1,101 @@
+required:
+  - name
+  - price
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  hidden:
+    type: boolean
+    description: True if this item is hidden from Clover Register App
+    default: 'false'
+  itemGroup:
+    description: Reference to an item group
+    $ref: ./Reference.yaml
+  options:
+    type: array
+    description: List of options pertaining to this item's attribute variation
+    items:
+      $ref: ./Option.yaml
+  name:
+    type: string
+    description: Name of the item
+  alternateName:
+    type: string
+    description: Alternate name of the item
+  code:
+    type: string
+    description: 'Product code, e.g. UPC or EAN'
+  sku:
+    type: string
+    description: SKU of the item
+  price:
+    type: integer
+    description: >-
+      Price of the item, typically in cents; use priceType and merchant currency
+      to determine actual item price. For non-VAT merchants, this field is
+      exclusive of tax. For VAT merchants, this field is inclusive of tax.
+    format: int64
+  priceType:
+    type: string
+    enum:
+      - FIXED
+      - VARIABLE
+      - PER_UNIT
+  defaultTaxRates:
+    type: boolean
+    description: Flag to indicate whether or not to use default tax rates
+    default: 'true'
+  unitName:
+    type: string
+    description: 'Unit name, e.g. oz, lb'
+  cost:
+    type: integer
+    description: 'Cost of the item to merchant, as opposed to customer price'
+  isRevenue:
+    type: boolean
+    description: >-
+      True if this item should be counted as revenue, for example gift cards and
+      donations would not
+    default: 'false'
+  stockCount:
+    type: integer
+    description: 'Deprecated, use itemStock instead.'
+  taxRates:
+    type: array
+    items:
+      $ref: ./TaxRate.yaml
+  modifierGroups:
+    type: array
+    items:
+      $ref: ./ModifierGroup.yaml
+  categories:
+    type: array
+    description: Categories associated with this item
+    items:
+      $ref: ./Category.yaml
+  tags:
+    type: array
+    description: Tags associated with this item
+    items:
+      $ref: ./Tag.yaml
+  canonical:
+    description: Reference to canonical items
+    $ref: ./Reference.yaml
+  itemStock:
+    description: Item stock attribute that can be expanded to show stock quantity
+    $ref: ./ItemStock.yaml
+  menuItem:
+    description: Menu Item attribute that can be expanded to menu specific attributes
+    $ref: ./MenuItem.yaml
+  modifiedTime:
+    type: integer
+  deletedTime:
+    type: integer
+    description: Timestamp when item was last deleted
+  priceWithoutVat:
+    type: integer
+    description: >-
+      The price without value-added tax (VAT). For non-VAT merchants, this field
+      is ignored. For VAT merchants, this field is the base price of an item.

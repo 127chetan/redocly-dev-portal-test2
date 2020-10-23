@@ -1,0 +1,47 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a list this merchant opening hours
+  description: ''
+  operationId: merchant.GetAllMerchantOpeningHours
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/HoursSet.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Create a set of merchant opening hours
+  description: ''
+  operationId: merchant.CreateMerchantOpeningHours
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/HoursSet.yaml
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/HoursSet.yaml
+  deprecated: false

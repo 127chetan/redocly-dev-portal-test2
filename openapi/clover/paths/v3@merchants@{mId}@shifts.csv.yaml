@@ -1,0 +1,25 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get .csv of all shifts
+  description: ''
+  operationId: merchant.GetAllShiftsCSV
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [employee.id, out_time, in_time, employee.name,
+        in_and_override_time, out_and_override_time, id, has_in_time,
+        override_in_time, deletedTime, server_banking]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

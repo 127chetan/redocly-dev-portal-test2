@@ -1,0 +1,12 @@
+type: object
+properties:
+  disclaimerText:
+    type: string
+  disclaimerValues:
+    type: object
+    properties:
+      default:
+        type: string
+    description: >-
+      Values that will be substituted in standard disclaimer text (txn
+      date/time, account number, product label, etc.

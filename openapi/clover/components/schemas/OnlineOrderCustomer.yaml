@@ -1,0 +1,35 @@
+type: object
+properties:
+  id:
+    type: string
+    description: online order customer id
+  customerEmailAddress:
+    type: string
+    description: Online Order customer email address
+  customerDisplayName:
+    type: string
+    description: Online Order customer display name
+  customerFirstName:
+    type: string
+    description: Online Order customer first name
+  customerLastName:
+    type: string
+    description: Online Order customer last name
+  customerPhoneNumber:
+    type: string
+    description: Online Order customer phone number
+  customerAddress:
+    description: Online Order customer address
+    $ref: ./Address.yaml
+  isSnapshot:
+    type: boolean
+    description: If the online order customer info is from snapshot
+    default: 'false'
+  createdTime:
+    type: integer
+    description: Timestamp when the online ordering item was created
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Timestamp when the online ordering item was last modified
+    format: int64

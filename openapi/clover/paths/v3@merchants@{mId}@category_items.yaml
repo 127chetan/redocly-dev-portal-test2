@@ -1,0 +1,22 @@
+post:
+  tags:
+    - INVENTORY
+  summary: Create or delete an item/category association
+  description: ''
+  operationId: category.CreateOrDeleteCategoryItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

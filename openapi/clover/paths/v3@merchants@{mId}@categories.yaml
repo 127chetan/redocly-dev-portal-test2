@@ -1,0 +1,63 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all categories
+  description: >-
+    Categories alter the user experience of the Register app. Items will appear
+    in the Register app within the categories they are members of. Items may be
+    associated with no, one or multiple categories. Items are displayed in
+    Register in the order in which they are added to a category. Categories are
+    displayed in Register using the sort order value for each category.
+  operationId: category.GetCategories
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [modifiedTime, deleted, sortOrder, name, id]'
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Category.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create an item category
+  description: ''
+  operationId: category.CreateCategory
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Category.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

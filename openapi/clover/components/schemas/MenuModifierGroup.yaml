@@ -1,0 +1,45 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Modifier group id
+  modifierGroup:
+    description: Reference to the modifier group
+    $ref: ./Reference.yaml
+  name:
+    type: string
+    description: Customer facing modifier group name
+  description:
+    type: string
+    description: Modifier group description
+  minRequired:
+    type: integer
+    description: >-
+      The minimum amount of modifiers from this group that must be applied to
+      associated lineItems
+  maxAllowed:
+    type: integer
+    description: >-
+      The maximum amount of modifiers from this group that can be applied to
+      associated lineItems
+  reasonCode:
+    type: string
+    description: Reason for being filtered out
+  imageFilename:
+    type: string
+    description: Modifier group image file path
+  enabled:
+    type: boolean
+    description: Modifier group enabled for menu
+  createdTime:
+    type: integer
+    description: Timestamp when the menu modifier group was created
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Timestamp when the menu modifier group was last modified
+    format: int64
+  deletedTime:
+    type: integer
+    description: Timestamp when menu modifier group was last deleted
+    format: int64

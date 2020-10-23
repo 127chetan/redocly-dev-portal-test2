@@ -1,0 +1,19 @@
+required:
+  - itemGroup
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Name of this attribute
+  itemGroup:
+    description: The item group this attribute belongs to
+    $ref: ./Reference.yaml
+  options:
+    type: array
+    description: Options associated with this attribute
+    items:
+      $ref: ./Option.yaml

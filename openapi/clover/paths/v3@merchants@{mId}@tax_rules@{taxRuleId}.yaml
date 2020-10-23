@@ -1,0 +1,26 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get an individual tax exemption rule
+  description: Returns the tax exemption rule specified in the request
+  operationId: taxrules.GetTaxRule
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: taxRuleId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TaxRule.yaml
+  deprecated: false

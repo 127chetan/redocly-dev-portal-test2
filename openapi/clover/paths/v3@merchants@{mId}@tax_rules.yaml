@@ -1,0 +1,23 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all tax exemption rules
+  description: >-
+    Get a list of tax exemption rules which links order types to items in an
+    order to exclude certain tax rates from those items
+  operationId: taxrules.GetTaxRules
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TaxRule.yaml
+  deprecated: false

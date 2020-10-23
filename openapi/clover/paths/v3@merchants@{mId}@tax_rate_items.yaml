@@ -1,0 +1,17 @@
+post:
+  tags:
+    - INVENTORY
+  summary: Create or delete a tax rate item
+  description: ''
+  operationId: taxrate.CreateOrDeleteTaxRateItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

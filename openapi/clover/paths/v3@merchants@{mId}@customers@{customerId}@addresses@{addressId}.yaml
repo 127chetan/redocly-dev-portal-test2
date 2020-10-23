@@ -1,0 +1,59 @@
+post:
+  tags:
+    - CUSTOMERS
+  summary: Update an address for a customer
+  description: Updates a merchant's customer's address.
+  operationId: handlers.UpdateCustomerAddress
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: addressId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Address.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - CUSTOMERS
+  summary: Delete a customer address
+  description: Deletes a merchant's customer's address.
+  operationId: handlers.DeleteCustomerAddress
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: addressId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

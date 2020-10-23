@@ -1,0 +1,18 @@
+type: object
+properties:
+  destination:
+    type: string
+    description: >-
+      Destination for the message CDSP - CustomerDisplay, CRCP -
+      CustomerReceipt/AidParam, MDSP - MerchantDisplay, MRCP -
+      MerchantReceipt/AidParam
+    enum:
+      - CUSTOMER_DISPLAY
+      - CUSTOMER_RECEIPT
+      - CUSTOMER_RECEIPT_AID_PARAM
+      - MERCHANT_DISPLAY
+      - MERCHANT_RECEIPT
+      - MERCHANT_RECEIPT_AID_PARAM
+  content:
+    type: string
+    description: Contains the display and/or print message text from gateway

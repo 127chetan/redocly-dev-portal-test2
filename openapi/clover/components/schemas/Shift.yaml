@@ -1,0 +1,37 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  employee:
+    description: The employee that worked this shift
+    $ref: ./Employee.yaml
+  cashTipsCollected:
+    type: integer
+    description: Amount of cash tips collected
+    format: int64
+  serverBanking:
+    type: boolean
+    description: Whether the employee used server banking
+  inTime:
+    type: integer
+    description: Clock in time
+    format: int64
+  overrideInTime:
+    type: integer
+    description: Overridden clock in time
+    format: int64
+  overrideInEmployee:
+    description: The employee who overrode the clock in time
+    $ref: ./Employee.yaml
+  outTime:
+    type: integer
+    description: Clock out time
+    format: int64
+  overrideOutTime:
+    type: integer
+    description: Overridden clock out time
+    format: int64
+  overrideOutEmployee:
+    description: The employee who overrode the clock out time
+    $ref: ./Employee.yaml

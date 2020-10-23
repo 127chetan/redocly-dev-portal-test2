@@ -1,0 +1,11 @@
+required:
+  - end
+  - start
+type: object
+properties:
+  start:
+    type: integer
+    format: int32
+  end:
+    type: integer
+    format: int32

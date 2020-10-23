@@ -1,0 +1,74 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get the stock of an inventory item
+  description: ''
+  operationId: inventory.GetItemStock
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update the stock of an inventory item
+  description: ''
+  operationId: inventory.UpdateItemStock
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ItemStock.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete the stock of an inventory item
+  description: ''
+  operationId: inventory.DeleteItemStock
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,227 @@
+type: object
+properties:
+  languageIndicator:
+    type: string
+    description: >-
+      2 character language used for the transaction. Deprecated in factor of
+      transactionLocale.
+  transactionLocale:
+    type: string
+    description: Locale for the transaction (e.g. en-CA)
+  accountSelection:
+    type: string
+    enum:
+      - CREDIT
+      - DEBIT
+      - CHECKING
+      - SAVINGS
+  fiscalInvoiceNumber:
+    type: string
+    description: Consists of 4 digits prefix + 8 digits
+  installmentsQuantity:
+    type: integer
+    description: 'AR Installments: number of installments'
+    format: int32
+  installmentsPlanCode:
+    type: string
+    description: 'AR Installments: plan alphanum code'
+  installmentsPlanId:
+    type: string
+    description: 'AR Installments: selected plan id'
+  installmentsPlanDesc:
+    type: string
+    description: 'AR Installments: selected plan desc'
+  cardTypeLabel:
+    type: string
+    description: Card type label
+  cardSymbol:
+    type: string
+    description: Card Symbol for identify in payment_card_config table
+  stan:
+    type: integer
+    description: STAN(System Audit Trace Number)
+    format: int32
+  identityDocument:
+    description: Customers identification number and type
+    $ref: ./IdentityDocument.yaml
+  batchNumber:
+    type: string
+    description: Transaction Batch Number
+  receiptNumber:
+    type: string
+    description: Transaction Receipt Number
+  reversalStanRefNum:
+    type: string
+    description: Reversal STAN Ref Num
+  reversalStan:
+    type: integer
+    description: STAN for reversal
+    format: int32
+  reversalMac:
+    type: string
+    description: MAC for reversal
+  reversalMacKsn:
+    type: string
+    description: MAC KSN for reversal
+  terminalIdentification:
+    type: string
+    description: Designates the unique location of a terminal at a merchant
+  externalTerminalId:
+    type: string
+    description: >-
+      Main internal identifier of terminal which should be the same across all
+      Fiserv’s components
+  merchantIdentifier:
+    type: string
+    description: >-
+      When concatenated with the Acquirer Identifier, uniquely identifies a
+      given merchant
+  merchantNameLocation:
+    type: string
+    description: Indicates the name and location of the merchant
+  maskedTrack2:
+    type: string
+    description: Masked track2 data
+  receiptExtraData:
+    type: string
+    description: Extra data for receipt
+  selectedService:
+    type: string
+    description: Defines the Financial Service selected for the transaction
+    enum:
+      - NONE
+      - PAYMENT
+      - REFUND
+      - CANCELLATION
+      - PRE_AUTH
+      - UPDATE_PRE_AUTH
+      - PAYMENT_COMPLETION
+      - CASH_ADVANCE
+      - DEFERRED_PAYMENT
+      - DEFERRED_PAYMENT_COMPLETION
+      - VOICE_AUTHORISATION
+      - CARDHOLDER_DETECTION
+      - TOKEN_REQUEST
+      - VERIFICATION
+  transactionResult:
+    type: string
+    description: Result of the transaction
+    enum:
+      - APPROVED
+      - DECLINED
+      - ABORTED
+      - VOICE_AUTHORISATION
+      - PAYMENT_PART_ONLY
+      - PARTIALLY_APPROVED
+      - NONE
+  transactionTags:
+    type: string
+    description: Contains a hex string with needed TLV tags for certification
+  txFormat:
+    type: string
+    description: >-
+      Contains the information how the data inside transactionTags should be
+      coded - initially we cause default and nexo as formats
+    enum:
+      - DEFAULT
+      - NEXO
+  panMask:
+    type: string
+    description: Contains the information how the PAN should masked.
+  transactionSequenceCounter:
+    type: string
+    description: >-
+      Counter maintained by the terminal that is incremented for each
+      transaction at the beginning of the Perform Service function.
+  applicationPanSequenceNumber:
+    type: string
+    description: Identifies and differentiates cards with the same PAN.
+  reversalReason:
+    type: string
+    description: >-
+      Contains the reason why the transaction should be reversed in the host. It
+      has to be mapped in server with the expected value by the corresponding
+      gateway
+    enum:
+      - CHIP_DECLINE
+      - CARDHOLDER_CANCELLATION
+      - COMMUNICATION_ERROR
+      - OTHER_REASON
+  isTokenBasedTx:
+    type: boolean
+    description: >-
+      Boolean to determine if the transaction done using a vaulted card is a
+      token based transaction
+    default: 'false'
+  origTransactionSequenceCounter:
+    type: string
+    description: >-
+      For reversal and capture transactions, this contains the reference
+      (transactionSequenceCounter) to the originating transaction.
+  transactionSequenceCounterUpdate:
+    type: string
+    description: >-
+      This field is populated when the TSC of a terminal is out of sync and is
+      provided with an update.
+  emergencyFlag:
+    type: boolean
+    description: >-
+      Boolean value defining if the corresponding TX was performed in NEXO
+      emergency mode according NEXO IS Spec chapter 10.2
+    default: 'false'
+  entryType:
+    type: string
+    description: This field contains the entry type of a transaction.
+    enum:
+      - SWIPED
+      - KEYED
+      - VOICE
+      - VAULTED
+      - OFFLINE_SWIPED
+      - OFFLINE_KEYED
+      - EMV_CONTACT
+      - EMV_CONTACTLESS
+      - MSD_CONTACTLESS
+      - PINPAD_MANUAL_ENTRY
+      - QR_CODE
+      - SCANNED
+  promotionalMessage:
+    $ref: ./PromotionalMessage.yaml
+  eCommTransactionInfo:
+    $ref: ./ECommTransactionInfo.yaml
+  sepaElvTransactionInfo:
+    $ref: ./SepaElvTransactionInfo.yaml
+  clientCardType:
+    type: string
+    description: >-
+      Client card type should be used only limited purpose only and should not
+      be confused with cardType in other objects.
+       This is a read only field and must not to be overwritten on server or client once set on client. 
+       This is set on client only for MSR tx for now as the AIDs are not identified for MSR. 
+       For few MSR tx, the card type was identified incorrectly on client side, and also on server side based on the bin match. 
+       In order to get the correct card types, this client card type will be sent to the server
+    enum:
+      - VISA
+      - MC
+      - AMEX
+      - DISCOVER
+      - DINERS_CLUB
+      - JCB
+      - MAESTRO
+      - SOLO
+      - LASER
+      - CHINA_UNION_PAY
+      - CARTE_BLANCHE
+      - UNKNOWN
+      - GIFT_CARD
+      - EBT
+      - GIROCARD
+      - INTERAC
+      - OTHER
+  isSepaElv:
+    type: boolean
+    description: Defines if the corresponding TX was performed as SEPA ELV TX.
+  printMessages:
+    type: array
+    items:
+      $ref: ./DisplayAndPrintMessage.yaml

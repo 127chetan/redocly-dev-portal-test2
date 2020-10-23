@@ -1,0 +1,9 @@
+required:
+  - items
+type: object
+properties:
+  items:
+    type: array
+    description: Array of inventory items
+    items:
+      $ref: ./Item.yaml

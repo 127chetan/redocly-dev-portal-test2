@@ -1,0 +1,74 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  orderRef:
+    description: The order with which the refund is associated
+    $ref: ./Reference.yaml
+  device:
+    description: >-
+      Device which processed the transaction for this refund, a 128-bit UUID,
+      not a normal base-13 Clover ID.
+    $ref: ./Reference.yaml
+  amount:
+    type: integer
+    description: 'Total amount refunded, including tax and tip'
+    format: int64
+  taxAmount:
+    type: integer
+    description: Tax amount refunded
+  tipAmount:
+    type: integer
+    description: Tip amount refunded
+  createdTime:
+    type: integer
+    description: The time when the refund was recorded on the server
+    format: int64
+  clientCreatedTime:
+    type: integer
+    description: The time when the refund was recorded on the client
+    format: int64
+  payment:
+    description: The payment with which the refund is associated
+    $ref: ./Reference.yaml
+  employee:
+    $ref: ./Reference.yaml
+  lineItems:
+    type: array
+    items:
+      $ref: ./Reference.yaml
+  overrideMerchantTender:
+    description: 'The tender type associated with this payment, e.g. credit card, cash, etc.'
+    $ref: ./Tender.yaml
+  taxableAmountRates:
+    type: array
+    items:
+      $ref: ./TaxableAmountRate.yaml
+  serviceChargeAmount:
+    $ref: ./ServiceChargeAmount.yaml
+  additionalCharges:
+    type: array
+    items:
+      $ref: ./AdditionalChargeAmount.yaml
+  germanInfo:
+    description: German region-specific information
+    $ref: ./GermanInfo.yaml
+  appTracking:
+    description: Tracking information for the app that created this refund.
+    $ref: ./AppTracking.yaml
+  voided:
+    type: boolean
+  voidReason:
+    type: string
+  cardTransaction:
+    description: Information about the card used for credit or debit card refunds
+    $ref: ./CardTransaction.yaml
+  transactionInfo:
+    description: Transaction information
+    $ref: ./TransactionInfo.yaml
+  merchant:
+    $ref: ./Reference.yaml
+  externalReferenceId:
+    type: string
+    description: The external reference id if associated with the refund

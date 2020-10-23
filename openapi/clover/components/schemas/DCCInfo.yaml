@@ -1,0 +1,28 @@
+type: object
+properties:
+  inquiryRateId:
+    type: integer
+    description: Inquiry Rate ID (IPG)
+    format: int64
+  dccApplied:
+    type: boolean
+    description: Flag indicating whether DCC was applied on this txn
+  foreignCurrencyCode:
+    type: string
+    description: Foreign currency code
+  foreignAmount:
+    type: integer
+    description: Foreign (transaction) amount
+    format: int64
+  exchangeRate:
+    type: number
+    description: Exchange Rate
+  marginRatePercentage:
+    type: string
+    description: Margin Rate Percentage
+  exchangeRateSourceName:
+    type: string
+    description: Exchange Rate Source Name
+  exchangeRateSourceTimeStamp:
+    type: string
+    description: Exchange Rate Source Timestamp

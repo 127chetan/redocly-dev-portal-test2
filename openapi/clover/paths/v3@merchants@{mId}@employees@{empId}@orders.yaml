@@ -1,0 +1,41 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get all orders for an employee
+  description: ''
+  operationId: employee.GetEmployeeOrders
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [lineItems, serviceCharge, discounts, credits, payments,
+        customers, refunds]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [lineItems, serviceCharge, discounts, credits,
+        payments, customers, refunds]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Order.yaml
+  deprecated: false

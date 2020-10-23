@@ -1,0 +1,17 @@
+post:
+  tags:
+    - MERCHANTS
+  summary: Create or delete a order type category
+  description: ''
+  operationId: order.CreateOrDeleteOrderTypeCategories
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

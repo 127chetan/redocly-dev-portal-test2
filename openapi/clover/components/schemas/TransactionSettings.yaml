@@ -1,0 +1,77 @@
+type: object
+properties:
+  cardEntryMethods:
+    type: integer
+    format: int32
+  disableCashBack:
+    type: boolean
+    default: 'false'
+  cloverShouldHandleReceipts:
+    type: boolean
+    default: 'true'
+  forcePinEntryOnSwipe:
+    type: boolean
+    default: 'false'
+  disableRestartTransactionOnFailure:
+    type: boolean
+    default: 'false'
+  allowOfflinePayment:
+    type: boolean
+    default: 'false'
+  approveOfflinePaymentWithoutPrompt:
+    type: boolean
+    default: 'false'
+  forceOfflinePayment:
+    type: boolean
+    default: 'false'
+  signatureThreshold:
+    type: integer
+    format: int64
+  signatureEntryLocation:
+    type: string
+    enum:
+      - ON_SCREEN
+      - ON_PAPER
+      - NONE
+  tipMode:
+    type: string
+    enum:
+      - TIP_PROVIDED
+      - ON_SCREEN_BEFORE_PAYMENT
+      - ON_SCREEN_AFTER_PAYMENT
+      - ON_PAPER
+      - NO_TIP
+  tippableAmount:
+    type: integer
+    format: int64
+  disableReceiptSelection:
+    type: boolean
+    default: 'false'
+  disableDuplicateCheck:
+    type: boolean
+    default: 'false'
+  autoAcceptPaymentConfirmations:
+    type: boolean
+    description: >-
+      If set to true, confirmation requests triggered by a challenge at the
+      payment gateway are automatically accepted, and confirmation requests are
+      not transmitted back to the calling program. Be sure you are willing to
+      accept the risk associated with accepting offline or duplicate payment
+      challenges. See https://docs.clover.com/build/working-with-challenges for
+      more information.
+    default: 'false'
+  autoAcceptSignature:
+    type: boolean
+    default: 'false'
+  returnResultOnTransactionComplete:
+    type: boolean
+    default: 'false'
+  tipSuggestions:
+    type: array
+    items:
+      $ref: ./TipSuggestion.yaml
+  regionalExtras:
+    type: object
+    properties:
+      default:
+        type: string

@@ -1,0 +1,26 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get all tip suggestions for a merchant
+  description: ''
+  operationId: merchant.GetTipSuggestions
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [percentage, name, id, enabled]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TipSuggestion.yaml
+  deprecated: false

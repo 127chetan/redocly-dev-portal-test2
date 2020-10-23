@@ -1,0 +1,110 @@
+get:
+  tags:
+    - ORDERS
+  summary: Get a line item
+  description: ''
+  operationId: order.GetOrderLineItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: lineItemId
+      in: path
+      description: Line Item Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [employee, orderType, discounts, modifications,
+        taxRates, payments]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/LineItem.yaml
+  deprecated: false
+post:
+  tags:
+    - ORDERS
+  summary: Update a line item
+  description: ''
+  operationId: order.UpdateOrderLineItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: lineItemId
+      in: path
+      description: Line Item Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [employee, orderType, discounts, modifications,
+        taxRates, payments]
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/LineItem.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - ORDERS
+  summary: Void a line item
+  description: ''
+  operationId: order.DeleteOrderLineItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: lineItemId
+      in: path
+      description: Line Item Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

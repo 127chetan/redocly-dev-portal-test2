@@ -1,0 +1,37 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all items in a single category
+  description: ''
+  operationId: category.GetCategoryItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: catId
+      in: path
+      description: Category Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [modifiedTime, deleted, sortOrder, name, id]'
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Item.yaml
+  deprecated: false

@@ -1,0 +1,57 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get all tenders for a merchant
+  description: ''
+  operationId: pay.GetMerchantTenders
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, visible, merchantId, instruction,
+        systemTenderId, label, id, labelKey, opensCashDrawer, deletedTime,
+        enabled]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tender.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Adds a new tender
+  description: >-
+    Returns an object representing newly added merchant tender, with a generated
+    ID.
+  operationId: pay.CreateMerchantTender
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Tender.yaml
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tender.yaml
+  deprecated: false

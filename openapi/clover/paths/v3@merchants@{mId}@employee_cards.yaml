@@ -1,0 +1,46 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get all employee cards
+  description: ''
+  operationId: card.GetEmployeeCards
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [employee.id, number, modifiedTime, updater.id,
+        createdTime, id, status]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+post:
+  tags:
+    - EMPLOYEES
+  summary: Create or update an employee card
+  description: ''
+  operationId: card.CreateOrUpdateEmployeeCard
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/EmployeeCard.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

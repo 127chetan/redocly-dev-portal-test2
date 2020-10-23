@@ -1,0 +1,38 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Friendly name to describe the hours
+  reference:
+    $ref: ./Reference.yaml
+  sunday:
+    type: array
+    items:
+      $ref: ./HourRange.yaml
+  monday:
+    type: array
+    items:
+      $ref: ./HourRange.yaml
+  tuesday:
+    type: array
+    items:
+      $ref: ./HourRange.yaml
+  wednesday:
+    type: array
+    items:
+      $ref: ./HourRange.yaml
+  thursday:
+    type: array
+    items:
+      $ref: ./HourRange.yaml
+  friday:
+    type: array
+    items:
+      $ref: ./HourRange.yaml
+  saturday:
+    type: array
+    items:
+      $ref: ./HourRange.yaml

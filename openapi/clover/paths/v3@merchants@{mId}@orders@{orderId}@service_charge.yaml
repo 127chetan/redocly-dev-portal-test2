@@ -1,0 +1,31 @@
+post:
+  tags:
+    - ORDERS
+  summary: Apply a service charge to an order
+  description: >-
+    The request body must include the merchant's service charge ID. This ID can
+    be retrieved from /v3/merchants/mId/default_service_charge. Each request can
+    set a different name and percentageDecimal as needed for an order.
+  operationId: order.ApplyServiceCharge
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ServiceCharge.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

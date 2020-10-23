@@ -1,0 +1,29 @@
+delete:
+  tags:
+    - ORDERS
+  summary: Delete a discount
+  description: ''
+  operationId: order.RemoveDiscount
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: discountId
+      in: path
+      description: Discount Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,11 @@
+type: object
+properties:
+  ecommIndicator:
+    type: string
+    enum:
+      - ecom
+      - moto
+      - recurring
+  storedCredentials:
+    description: Details about the stored credentials.
+    $ref: ./StoredCredentials.yaml

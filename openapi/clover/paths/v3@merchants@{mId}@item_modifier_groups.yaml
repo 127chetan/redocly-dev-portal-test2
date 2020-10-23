@@ -1,0 +1,21 @@
+post:
+  tags:
+    - INVENTORY
+  summary: Create or delete item to modifier group associations
+  description: >-
+    Create or delete one or more association objects (item modifier groups).
+    Modifiers can only be applied to items associated with that modifier's
+    group. Learn more about object associations here:
+    https://docs.clover.com/build/web-api/#object-associations
+  operationId: modifier.CreateOrDeleteItemModifierGroups
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

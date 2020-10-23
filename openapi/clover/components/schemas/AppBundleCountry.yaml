@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  price:
+    type: integer
+    format: int64
+  pricePerDevice:
+    type: integer
+    format: int64
+  country:
+    type: string
+    description: The country of the app bundle country
+  appBundle:
+    type: integer
+    description: DB reference to app bundle that contains this app bundle country.
+    format: int64

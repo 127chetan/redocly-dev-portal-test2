@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  editable:
+    type: boolean
+    description: If this merchant tender is editable
+  labelKey:
+    type: string
+    description: Label Key
+  label:
+    type: string
+    description: Label Key
+  opensCashDrawer:
+    type: boolean
+    description: If this tender opens the cash drawer
+  supportsTipping:
+    type: boolean
+    description: Allow tipping on payment from tender
+  enabled:
+    type: boolean
+    description: If this merchant tender is enabled
+  visible:
+    type: boolean
+    description: If this merchant tender is visible
+  instructions:
+    type: string
+    description: Label Key

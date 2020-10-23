@@ -1,0 +1,181 @@
+type: object
+properties:
+  merchantRef:
+    $ref: ./Reference.yaml
+  defaultCurrency:
+    type: string
+  tipsEnabled:
+    type: boolean
+  maxTipPercentage:
+    type: integer
+    format: int64
+  receiptProperties:
+    type: string
+  summaryHour:
+    type: integer
+    format: int32
+  signatureThreshold:
+    type: integer
+    format: int64
+  hasDefaultEmployee:
+    type: boolean
+  tipRateDefault:
+    type: integer
+    format: int32
+  onPaperTipSignatures:
+    type: boolean
+  noSignatureProgramEligible:
+    type: boolean
+  autoLogout:
+    type: boolean
+  orderTitle:
+    type: string
+    enum:
+      - NONE
+      - MANUAL
+      - AUTOMATIC
+  orderTitleMax:
+    type: integer
+    format: int32
+  resetOnReportingTime:
+    type: boolean
+  notesOnOrders:
+    type: boolean
+  deleteOrders:
+    type: boolean
+  removeTaxEnabled:
+    type: boolean
+  groupLineItems:
+    type: boolean
+  alternateInventoryNames:
+    type: boolean
+  autoPrint:
+    type: boolean
+  hardwareProfile:
+    type: string
+  infoleaseSuppressBilling:
+    type: boolean
+  infoleaseSuppressPlanBilling:
+    type: boolean
+  shippingAddress:
+    type: string
+  marketingEnabled:
+    type: boolean
+  marketingPreferenceText:
+    type: string
+  bankMarker:
+    type: integer
+    format: int32
+  supportPhone:
+    type: string
+  supportEmail:
+    type: string
+  manualCloseout:
+    type: boolean
+  manualCloseoutPerDevice:
+    type: boolean
+  autoCloseoutTimezone:
+    type: string
+  showCloseoutOrders:
+    type: boolean
+  sendCloseoutEmail:
+    type: boolean
+  stayInCategory:
+    type: boolean
+  locale:
+    type: string
+    description: The locale of the merchant.
+  timezone:
+    type: string
+  vat:
+    type: boolean
+    description: Whether this merchant is in a VAT country
+  vatTaxName:
+    type: string
+    description: The VAT tax name that is shown on receipts
+  appBillingSystem:
+    type: string
+    description: Temporary while we are switching US billing systems
+  abaAccountNumber:
+    type: string
+    description: The ABA Account Number.  Supplied by First Data.
+  ddaAccountNumber:
+    type: string
+    description: The Masked DDA Account Number.  Supplied by First Data.
+  trackStock:
+    type: boolean
+    default: 'false'
+  updateStock:
+    type: boolean
+    default: 'false'
+  allowClockOutWithOpenOrders:
+    type: boolean
+  logInClockInPrompt:
+    type: boolean
+  accountType:
+    type: string
+  pinLength:
+    type: integer
+    format: int32
+  cashBackEnabled:
+    type: boolean
+    description: Whether cash back is enabled for this merchant
+  cashBackOptions:
+    type: string
+    description: List of cash back possible cash back amounts
+  maxCashBack:
+    type: integer
+    description: The maximum amount of cash back that the customer can select.
+    format: int64
+  hierarchy:
+    type: string
+    description: >-
+      Merchant hierarchy (Business, Bank, Agent, Corp, Chain). Supplied by First
+      Data.
+  hasConsented:
+    type: boolean
+    description: Whether or not merchant has consented to infolease billing
+  merchantBoardingStatus:
+    type: string
+    description: This is used to identify if the merchant is self-boarded
+  alwaysRequireSignature:
+    type: boolean
+    description: >-
+      Whether we always require a signature for most transactions (excluding
+      contactless under cvm limit)
+  printedFirstDataReceiptLogoEnabled:
+    type: boolean
+    description: Whether we display the First Data receipt logo
+  privacyPolicyMode:
+    type: string
+    description: >-
+      Designates the privacy policy mode for this merchant (EU_GDPR_STRICT,
+      EU_GDPR_FLEX, US_HIPPA)
+  merchantPrivacyPolicyUrl:
+    type: string
+    description: Merchant-specified privacy policy url
+  disablePrintTaxesPaymentOnReceipts:
+    type: boolean
+    description: Whether we display the taxes table on receipts
+  processingRestrictions:
+    type: string
+    description: >-
+      Defines if there are any restrictions for payment processing of a
+      merchant. RESTRICTED: Processing is not allowed for the merchant. PENDING:
+      Merchant is being configured for processing. FAILED: Configuring merchant
+      for processing failed. NONE: There are not processing restrictions and
+      this is a normal Clover processing merchant.
+    enum:
+      - RESTRICTED
+      - PENDING
+      - FAILED
+      - NONE
+  limpModeAllowed2:
+    type: boolean
+    description: >-
+      Per the new V2 TAMPER_EXPERIENCE (see feature flag) if this is true then
+      setting the SRED_DISABLED merchant setting to true will result in the
+      terminal parameter DENY_COMPROMISED_TX becoming false which enables a not
+      provisioned (tampered) device with TransArmor SRED keys to take card
+      payments without PIN. If this is false then setting SRED_DISABLED merchant
+      to true setting will have no effect.

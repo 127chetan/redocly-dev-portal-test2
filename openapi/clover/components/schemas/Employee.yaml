@@ -1,0 +1,72 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Full name of the employee
+  nickname:
+    type: string
+    description: Nickname of the employee (shows up on receipts)
+  customId:
+    type: string
+    description: Custom ID of the employee
+  email:
+    type: string
+    description: Email of the employee (optional)
+  inviteSent:
+    type: boolean
+    description: Returns true if this employee was sent an invite to activate their account
+  claimedTime:
+    type: integer
+    description: Timestamp of when this employee claimed their account
+  deletedTime:
+    type: integer
+    description: Timestamp of when this employee was deleted
+  pin:
+    type: string
+    description: Employee PIN (hashed)
+  unhashedPin:
+    type: string
+    description: Employee PIN
+  role:
+    type: string
+    description: Employee System Role
+    enum:
+      - OWNER
+      - ADMIN
+      - MANAGER
+      - EMPLOYEE
+  roles:
+    type: array
+    items:
+      $ref: ./Reference.yaml
+  isOwner:
+    type: boolean
+    description: Returns true if this employee is the owner account for this merchant
+  shifts:
+    type: array
+    description: This employee's shifts
+    items:
+      $ref: ./Reference.yaml
+  payments:
+    type: array
+    description: This employee's payments
+    items:
+      $ref: ./Reference.yaml
+  orders:
+    type: array
+    description: This employee's orders
+    items:
+      $ref: ./Reference.yaml
+  employeeCards:
+    type: array
+    description: This employee's employee cards
+    items:
+      $ref: ./Reference.yaml
+  merchant:
+    description: The merchant employing this employee
+    $ref: ./Reference.yaml

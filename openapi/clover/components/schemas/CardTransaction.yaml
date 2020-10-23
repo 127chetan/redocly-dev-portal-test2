@@ -1,0 +1,140 @@
+type: object
+properties:
+  cardType:
+    type: string
+    enum:
+      - VISA
+      - MC
+      - AMEX
+      - DISCOVER
+      - DINERS_CLUB
+      - JCB
+      - MAESTRO
+      - SOLO
+      - LASER
+      - CHINA_UNION_PAY
+      - CARTE_BLANCHE
+      - UNKNOWN
+      - GIFT_CARD
+      - EBT
+      - GIROCARD
+      - INTERAC
+      - OTHER
+  entryType:
+    type: string
+    enum:
+      - SWIPED
+      - KEYED
+      - VOICE
+      - VAULTED
+      - OFFLINE_SWIPED
+      - OFFLINE_KEYED
+      - EMV_CONTACT
+      - EMV_CONTACTLESS
+      - MSD_CONTACTLESS
+      - PINPAD_MANUAL_ENTRY
+      - QR_CODE
+      - SCANNED
+  first6:
+    type: string
+    description: The first four digits of the card number
+  last4:
+    type: string
+    description: The last four digits of the card number
+  type:
+    type: string
+    enum:
+      - AUTH
+      - PREAUTH
+      - PREAUTHCAPTURE
+      - ADJUST
+      - VOID
+      - VOIDRETURN
+      - RETURN
+      - REFUND
+      - NAKEDREFUND
+      - GETBALANCE
+      - BATCHCLOSE
+      - ACTIVATE
+      - BALANCE_LOCK
+      - LOAD
+      - CASHOUT
+      - CASHOUT_ACTIVE_STATUS
+      - REDEMPTION
+      - REDEMPTION_UNLOCK
+      - RELOAD
+      - CASH_ADVANCE
+      - VOID_CREDIT
+      - REFUND_CREDIT
+      - INTERNET_ACTIVATE
+      - TOKEN_REQUEST
+      - VERIFICATION
+  authCode:
+    type: string
+    description: Authorization code (if successful)
+  referenceId:
+    type: string
+  transactionNo:
+    type: string
+  state:
+    type: string
+    description: >-
+      A state inferred from transaction type and whether the gateway captured
+      the transaction
+    enum:
+      - PENDING
+      - CLOSED
+  extra:
+    type: object
+    properties:
+      default:
+        type: string
+    description: Extra info to be stored as part of gateway/card transaction
+  begBalance:
+    type: integer
+  endBalance:
+    type: integer
+  avsResult:
+    type: string
+    enum:
+      - SUCCESS
+      - ZIP_CODE_MATCH
+      - ZIP_CODE_MATCH_ADDRESS_NOT_CHECKED
+      - ADDRESS_MATCH
+      - ADDRESS_MATCH_ZIP_NOT_CHECKED
+      - NEITHER_MATCH
+      - SERVICE_FAILURE
+      - SERVICE_UNAVAILABLE
+      - NOT_CHECKED
+      - ZIP_CODE_NOT_MATCHED_ADDRESS_NOT_CHECKED
+      - ADDRESS_NOT_MATCHED_ZIP_CODE_NOT_CHECKED
+  cardholderName:
+    type: string
+  token:
+    type: string
+  vaultedCard:
+    description: Vaulted card which can be used for subsequent transactions
+    $ref: ./VaultedCard.yaml
+  gatewayTxState:
+    type: string
+    description: >-
+      The state as currently recorded. This differs from the legacy 'state'
+      field. The legacy 'state' field is calculated from the 'type' field and
+      whether the transaction was captured.
+    enum:
+      - INITIATED
+      - INITIATED_ON_AUTH
+      - ACKNOWLEDGED
+      - CONNECT_FAILED
+      - TIMEOUT
+      - FAILED
+      - REVERSE_INITIATED
+      - REVERSE_INITIATED_ON_AUTH
+      - REVERSED
+      - REVERSAL_FAILED
+      - EXTERNAL
+  currency:
+    type: string
+    description: Currency code
+  captured:
+    type: boolean

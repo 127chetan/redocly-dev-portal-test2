@@ -1,0 +1,37 @@
+required:
+  - name
+  - rate
+  - taxableAmount
+type: object
+properties:
+  id:
+    type: string
+    description: Tax rate id.
+  name:
+    type: string
+    description: Tax rate name. This field is optional.
+  rate:
+    type: integer
+    description: The tax rate. 100% = 1e7.
+    format: int64
+  isDefault:
+    type: boolean
+    description: >-
+      Whether the tax rate was configued as a default tax rate at the time that
+      the payment was created.
+  taxableAmount:
+    type: integer
+    description: >-
+      The sub-total of line items that the tax was based on. For VAT, this
+      amount includes tax. For all others, this amount does not include tax.
+    format: int64
+  isVat:
+    type: boolean
+    description: Whether merchant is configured as VAT
+  taxAmount:
+    type: integer
+    description: >-
+      The amount of tax collected. In cases where there are multiple payments
+      for an order then it may be necessary to add an extra cent of tax to the
+      last payment.
+    format: int64

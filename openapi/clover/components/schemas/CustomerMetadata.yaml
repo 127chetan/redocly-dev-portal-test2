@@ -1,0 +1,30 @@
+type: object
+properties:
+  businessName:
+    type: string
+    description: The name of the business the customer is associated with.
+  note:
+    type: string
+    description: A note about the customer.
+  dobYear:
+    type: integer
+    description: >-
+      The year part of the date of birth for this customer. This part of the
+      date of birth is optional, i.e., it's possible that only dobMonth and
+      dobDay are populated.
+    format: int32
+  dobMonth:
+    type: integer
+    description: The month part of the date of birth for this customer.
+    format: int32
+  dobDay:
+    type: integer
+    description: The day part of the date of birth for this customer.
+    format: int32
+  modifiedTime:
+    type: integer
+    description: The timestamp from when this customer's data was last updated.
+    format: int64
+  customer:
+    description: Customer who this metadata belongs to.
+    $ref: ./Reference.yaml

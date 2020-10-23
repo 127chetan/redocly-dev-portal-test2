@@ -1,0 +1,26 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  discount:
+    description: >-
+      If this item is based on a standard discount, this will point to the
+      appropriate inventory.Discount
+    $ref: ./Reference.yaml
+  approver:
+    description: The person that authorized a discount
+    $ref: ./Reference.yaml
+  name:
+    type: string
+    description: Name of the discount
+  amount:
+    type: integer
+    description: >-
+      Discount amount in fraction of currency unit (e.g. cents) based on
+      currency fraction digits supported
+  percentage:
+    type: integer
+    description: Discount amount in percent

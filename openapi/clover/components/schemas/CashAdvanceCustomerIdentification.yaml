@@ -1,0 +1,50 @@
+type: object
+properties:
+  idType:
+    type: string
+    enum:
+      - DRIVERS_LICENSE
+      - PASSPORT
+      - US_MILITARY_ID
+      - US_RESIDENT
+      - CONSULAR_ID
+      - CANADIAN_CITIZEN
+      - US_STATE_GOVT_ID
+      - OTHER_ID
+  serialNumber:
+    type: string
+    description: Identification serial number
+  maskedSerialNumber:
+    type: string
+    description: Masked identification serial number
+  encryptedSerialNumber:
+    type: string
+    description: Encrypted identification serial number
+  expirationDate:
+    type: string
+    description: Expiration date in format MMDDYYYY
+  issuingState:
+    type: string
+    description: State in which identification was issued
+  issuingCountry:
+    type: string
+    description: Country in which identification was issued
+  customerName:
+    type: string
+    description: Full customer name
+  addressStreet1:
+    type: string
+  addressStreet2:
+    type: string
+  addressCity:
+    type: string
+  addressState:
+    type: string
+  addressZipCode:
+    type: string
+  addressCountry:
+    type: string
+  tellerID:
+    type: integer
+    description: Employee id
+    format: int32

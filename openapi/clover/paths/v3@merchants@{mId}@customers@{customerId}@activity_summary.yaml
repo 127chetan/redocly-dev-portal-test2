@@ -1,0 +1,20 @@
+get:
+  tags:
+    - CUSTOMERS
+  operationId: handlers.GetCustomerActivitySummary
+  summary: Get customer activity summary
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''

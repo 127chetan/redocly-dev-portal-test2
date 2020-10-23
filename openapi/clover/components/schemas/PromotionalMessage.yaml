@@ -1,0 +1,10 @@
+type: object
+properties:
+  message:
+    type: string
+  showOnMerchantReceipt:
+    type: boolean
+  showOnCustomerReceipt:
+    type: boolean
+  showOnDisplay:
+    type: boolean

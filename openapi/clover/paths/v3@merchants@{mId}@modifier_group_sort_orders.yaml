@@ -1,0 +1,24 @@
+post:
+  tags:
+    - INVENTORY
+  summary: >-
+    Update the priorities for a collection of up to 200 modifier groups at a
+    time
+  description: ''
+  operationId: modifier.UpdateModifierGroupSortOrders
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ModifierGroupArray.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

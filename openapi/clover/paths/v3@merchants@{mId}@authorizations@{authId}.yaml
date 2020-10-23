@@ -1,0 +1,83 @@
+get:
+  tags:
+    - PAYMENTS
+  summary: Get a single authorization
+  description: ''
+  operationId: pay.GetAuthorization
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: authId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [cardTransaction, dccInfo, germanInfo, appTracking,
+        taxRates, lineItemPayments, paymentAttributes, refunds, order, tender,
+        employee, externalReferenceId, transactionInfo]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Authorization.yaml
+  deprecated: false
+post:
+  tags:
+    - PAYMENTS
+  summary: Update an authorization
+  description: ''
+  operationId: pay.UpdateAuthorization
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: authId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Authorization.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - PAYMENTS
+  summary: Delete an authorization
+  description: ''
+  operationId: pay.DeleteAuthorization
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: authId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

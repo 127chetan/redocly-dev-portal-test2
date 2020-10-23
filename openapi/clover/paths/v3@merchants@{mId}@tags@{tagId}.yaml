@@ -1,0 +1,88 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a single tag
+  description: ''
+  operationId: tag.GetTag
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tagId
+      in: path
+      description: Tag Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items, printers]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tag.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update a single tag
+  description: ''
+  operationId: tag.UpdateTag
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tagId
+      in: path
+      description: Tag Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items, printers]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Tag.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete a tag
+  description: ''
+  operationId: tag.DeleteTag
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tagId
+      in: path
+      description: Tag Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

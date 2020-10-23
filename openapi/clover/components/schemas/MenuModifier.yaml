@@ -1,0 +1,39 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Modifier id
+  modifier:
+    description: Reference to the modifier
+    $ref: ./Reference.yaml
+  price:
+    type: integer
+    description: Modifier price
+    format: int64
+  name:
+    type: string
+    description: Customer facing modifier name
+  description:
+    type: string
+    description: Modifier description
+  imageFilename:
+    type: string
+    description: Modifier image file path
+  enabled:
+    type: boolean
+    description: Modifier enabled for menu
+  reasonCode:
+    type: string
+    description: Reason for being filtered out
+  createdTime:
+    type: integer
+    description: Timestamp when the menu modifier was created
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Timestamp when the menu modifier was last modified
+    format: int64
+  deletedTime:
+    type: integer
+    description: Timestamp when menu modifier was last deleted
+    format: int64

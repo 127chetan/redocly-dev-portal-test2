@@ -1,0 +1,88 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a single item group
+  description: ''
+  operationId: inventory.GetItemGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemGroupId
+      in: path
+      description: Item Group Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items, attributes]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ItemGroup.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update an item group
+  description: ''
+  operationId: inventory.UpdateItemGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemGroupId
+      in: path
+      description: Item Group Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items, attributes]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ItemGroup.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete an item group
+  description: ''
+  operationId: inventory.DeleteItemGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemGroupId
+      in: path
+      description: Item Group Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

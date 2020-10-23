@@ -1,0 +1,60 @@
+type: object
+properties:
+  paymentProcessorName:
+    type: string
+  authorizationFrontEnd:
+    type: string
+  acquiringBackEnd:
+    type: string
+  paymentGatewayApi:
+    type: string
+  accountName:
+    type: string
+  altMid:
+    type: string
+  mid:
+    type: string
+  fns:
+    type: string
+  tid:
+    type: string
+  storeId:
+    type: string
+  supportsTipping:
+    type: boolean
+  frontendMid:
+    type: string
+  backendMid:
+    type: string
+  mcc:
+    type: string
+    description: Merchant Category Code
+  tokenType:
+    type: string
+  groupId:
+    type: string
+  debitKeyCode:
+    type: string
+  sredCode:
+    type: string
+  supportsTipAdjust:
+    type: boolean
+  supportsNakedCredit:
+    type: boolean
+  supportsMultiPayToken:
+    type: boolean
+  supportsPreauthOverage:
+    type: boolean
+    description: >-
+      If true the gateway will allow an amount greater than the preauth amount
+      to be captured.
+  closingTime:
+    type: string
+  newBatchCloseEnabled:
+    type: boolean
+  production:
+    type: boolean
+    description: >-
+      Field to identify whether the payment processor is real or demo. 'true' is
+      returned for real payment processsor. 'false' is returned for demo payment
+      processor.

@@ -1,0 +1,63 @@
+get:
+  tags:
+    - PAYMENTS
+  summary: Get a single payment
+  description: ''
+  operationId: pay.GetPayment
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: payId
+      in: path
+      description: Payment Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [cardTransaction, dccInfo, germanInfo, appTracking,
+        taxRates, lineItemPayments, paymentAttributes, refunds, order, tender,
+        employee, externalReferenceId, transactionInfo]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Payment.yaml
+  deprecated: false
+post:
+  tags:
+    - PAYMENTS
+  summary: Update a payment
+  description: Currently it only updates LineItemPayments or employee ID
+  operationId: pay.UpdatePayment
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: payId
+      in: path
+      description: Payment Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Payment.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

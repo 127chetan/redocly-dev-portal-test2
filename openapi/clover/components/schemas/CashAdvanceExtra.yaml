@@ -1,0 +1,6 @@
+type: object
+properties:
+  cashAdvanceSerialNum:
+    type: string
+  cashAdvanceCustomerIdentification:
+    $ref: ./CashAdvanceCustomerIdentification.yaml

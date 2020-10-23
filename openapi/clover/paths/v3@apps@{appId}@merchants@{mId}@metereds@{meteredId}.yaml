@@ -1,0 +1,76 @@
+get:
+  tags:
+    - APPS
+  summary: Get all events for an app metered event type
+  description: >-
+    Retrieves all billing events for app metered event types such as
+    'reservation'. Requires an OAuth generated token.See the documentation:
+    https://docs.clover.com/clover-platform/docs/configuring-billing#section-metered-pricing
+  operationId: apps.GetMerchantAppMeteredEvents
+  parameters:
+    - name: appId
+      in: path
+      description: App Id
+      required: true
+      schema:
+        type: string
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: meteredId
+      in: path
+      description: Metered Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AppMeteredEvent.yaml
+  deprecated: false
+post:
+  tags:
+    - APPS
+  summary: Create an app billing metered event
+  description: >-
+    Create an app billing metered event. Clover charges the merchant for each
+    action they take on the app based on the amount specified on the app's
+    Pricing & Distribution page.Pass "count" as a query parameter to bill the
+    merchant for the number of metered events. "count" is ignored if you pass it
+    in the request body.Otherwise "count" defaults to 1. Requires an OAuth
+    generated token.See the documentation:
+    https://docs.clover.com/clover-platform/docs/configuring-billing#section-metered-pricing
+  operationId: apps.CreateMerchantAppMeteredEvent
+  parameters:
+    - name: appId
+      in: path
+      description: App Id
+      required: true
+      schema:
+        type: string
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: meteredId
+      in: path
+      description: Metered Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AppMeteredEvent.yaml
+  deprecated: false

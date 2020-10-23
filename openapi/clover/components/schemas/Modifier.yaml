@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Name of the modifier
+  alternateName:
+    type: string
+    description: Alternate name of the modifier
+  price:
+    type: integer
+    description: Additional cost when used
+    default: '0'
+  modifierGroup:
+    $ref: ./Reference.yaml
+  menuModifier:
+    description: Menu Modifier attribute that can be expanded to menu specific attributes
+    $ref: ./MenuModifier.yaml

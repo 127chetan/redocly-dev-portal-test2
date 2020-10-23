@@ -1,0 +1,27 @@
+post:
+  tags:
+    - CUSTOMERS
+  summary: 'Create note, birthday, business name for a customer'
+  description: 'Creates note, birthday, business name associated to a merchant''s customer.'
+  operationId: handlers.CreateOrUpdateCustomerMetadata
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CustomerMetadata.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

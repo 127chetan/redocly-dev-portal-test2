@@ -1,0 +1,66 @@
+get:
+  tags:
+    - PAYMENTS
+  summary: Get all authorizations.
+  description: >-
+    An authorization is a promise by a card issuer that a merchant can charge
+    the customer up to the specified amount in the future. These are typically
+    created when a merchant uses the "Bar Tabs" app and "Authorizations" app.
+  operationId: pay.GetAuthorizations
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [last4, note, amount, tabName, orderId, cardType,
+        orderModifiedTime, type, device.id, token, result, authcode,
+        externalReferenceId, closingPaymentId, merchantId, paymentId,
+        createdTime, id, deletedTime]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [payment]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Authorization.yaml
+  deprecated: false
+post:
+  tags:
+    - PAYMENTS
+  summary: Create an authorization on a Payment
+  description: >-
+    Authorization must reference a payment, have an amount greater than 0, and
+    have a type.
+  operationId: pay.CreateAuthorization
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Authorization.yaml
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Authorization.yaml
+  deprecated: false

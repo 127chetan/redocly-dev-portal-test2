@@ -1,0 +1,13 @@
+type: object
+properties:
+  item:
+    description: Reference to an item
+    $ref: ./Reference.yaml
+  stockCount:
+    type: integer
+    description: 'Deprecated, use quantity instead.'
+  quantity:
+    type: number
+    description: Current count of this item in stock.
+  modifiedTime:
+    type: integer

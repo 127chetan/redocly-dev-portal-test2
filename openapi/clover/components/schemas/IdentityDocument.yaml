@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  type:
+    type: string
+    description: 'Type of personal identification: National Document, Passport, etc'
+  number:
+    type: string
+    description: The identification number
+  createdTime:
+    type: integer
+    description: Created timestamp.
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Modified timestamp.
+    format: int64
+  deletedTime:
+    type: integer
+    description: Deleted timestamp.
+    format: int64
+  payment:
+    $ref: ./Reference.yaml

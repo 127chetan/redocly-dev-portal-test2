@@ -1,0 +1,88 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a single order type
+  description: ''
+  operationId: merchant.GetOrderType
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderTypeId
+      in: path
+      description: Order Type Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [hours, attributes, categories]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrderType.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Update a single order type
+  description: ''
+  operationId: merchant.UpdateOrderType
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderTypeId
+      in: path
+      description: Order Type Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [hours, attributes, categories]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrderType.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - MERCHANTS
+  summary: Delete an order type
+  description: ''
+  operationId: merchant.DeleteOrderType
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderTypeId
+      in: path
+      description: Order Type Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false
