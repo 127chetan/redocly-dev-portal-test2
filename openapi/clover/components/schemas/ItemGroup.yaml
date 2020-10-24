@@ -1,0 +1,20 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Name of the option
+  items:
+    type: array
+    description: Items that are members of this group
+    items:
+      $ref: ./Reference.yaml
+  attributes:
+    type: array
+    description: Attributes that belong to this group
+    items:
+      $ref: ./Reference.yaml

@@ -1,0 +1,109 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get a single shift
+  description: ''
+  operationId: employee.GetEmployeeShift
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: shiftId
+      in: path
+      description: Employee Shift Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Shift.yaml
+  deprecated: false
+post:
+  tags:
+    - EMPLOYEES
+  summary: Update a single shift
+  description: ''
+  operationId: employee.UpdateShift
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: shiftId
+      in: path
+      description: Employee Shift Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Shift.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - EMPLOYEES
+  summary: Delete a single shift
+  description: >-
+    When sending a request, you must include an X-Clover-Account-Id header. The
+    value of the header must be the ID of an employee with the permission to
+    edit shifts.
+  operationId: employee.DeleteShift
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: shiftId
+      in: path
+      description: Employee Shift Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

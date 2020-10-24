@@ -1,0 +1,42 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  merchant:
+    description: The merchant that is associated with this customer
+    $ref: ./Reference.yaml
+  firstName:
+    type: string
+    description: First/given name of the customer
+  lastName:
+    type: string
+    description: Last name/surname of the customer
+  marketingAllowed:
+    type: boolean
+  customerSince:
+    type: integer
+    format: int64
+  orders:
+    type: array
+    items:
+      $ref: ./Reference.yaml
+  addresses:
+    type: array
+    items:
+      $ref: ./Address.yaml
+  emailAddresses:
+    type: array
+    items:
+      $ref: ./EmailAddress.yaml
+  phoneNumbers:
+    type: array
+    items:
+      $ref: ./PhoneNumber.yaml
+  cards:
+    type: array
+    items:
+      $ref: ./Card.yaml
+  metadata:
+    description: Additional information about the customer.
+    $ref: ./CustomerMetadata.yaml

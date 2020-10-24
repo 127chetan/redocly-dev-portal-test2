@@ -1,0 +1,15 @@
+required:
+  - first6
+  - last4
+type: object
+properties:
+  first6:
+    type: string
+  last4:
+    type: string
+  cardholderName:
+    type: string
+  expirationDate:
+    type: string
+  token:
+    type: string

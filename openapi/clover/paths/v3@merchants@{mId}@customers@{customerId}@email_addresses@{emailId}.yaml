@@ -1,0 +1,59 @@
+post:
+  tags:
+    - CUSTOMERS
+  summary: Update an email address for a customer
+  description: Updates a merchant's customer's email address.
+  operationId: handlers.UpdateCustomerEmailAddress
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: emailId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/EmailAddress.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - CUSTOMERS
+  summary: Delete a customer email address
+  description: Deletes a merchant's customer's email address.
+  operationId: handlers.DeleteCustomerEmailAddress
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: emailId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  merchant:
+    description: The merchant the card belongs to
+    $ref: ./Reference.yaml
+  employee:
+    description: The employee who the card is currently assigned to
+    $ref: ./Reference.yaml
+  updater:
+    description: The employee who last updated the card's state
+    $ref: ./Reference.yaml
+  number:
+    type: string
+    description: Unique number on the employee card.
+  status:
+    type: string
+    description: Current status of the employee card
+    enum:
+      - ACTIVE
+      - DISABLED
+  createdTime:
+    type: integer
+    description: Timestamp of when this employee card was created
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Timestamp of when this employee card was last updated
+    format: int64

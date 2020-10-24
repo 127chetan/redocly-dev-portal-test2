@@ -1,0 +1,61 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all tags
+  description: >-
+    Similarly to how they are described by wikipedia, tags are an informal way
+    of establishing a relationship. Tags currently may be associated with items
+    and printers. When an tag is associated with both an item and a printer that
+    establishes a special relationship that results in those items being printed
+    out on the associated printer when printing an order. Other than that
+    special case there is no effect when an item is associated with a tag.
+    Developers may use tags to establish a relationship meaningful for their
+    needs.
+  operationId: tag.GetTags
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [modifiedTime, deleted, name, showInReporting, id]'
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items, printers]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tag.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create a tag
+  description: ''
+  operationId: tag.CreateTag
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Tag.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

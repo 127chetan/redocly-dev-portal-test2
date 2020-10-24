@@ -1,0 +1,53 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all attributes
+  description: See the description for 'get all item groups'.
+  operationId: inventory.GetAttributes
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [modifiedTime, name, id, deletedTime, itemGroup.id]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Attribute.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create an attribute
+  description: ''
+  operationId: inventory.CreateAttribute
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [options]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Attribute.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,55 @@
+get:
+  tags:
+    - ORDERS
+  summary: Get all discounts for an order
+  description: ''
+  operationId: order.GetOrderDiscounts
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+  deprecated: false
+post:
+  tags:
+    - ORDERS
+  summary: Create a discount on an order or line item
+  description: ''
+  operationId: order.CreateDiscount
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Discount.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

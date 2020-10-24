@@ -1,0 +1,65 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all modifier groups
+  description: >-
+    These groupings are the categories different modifiers belong to. Modifier
+    groups can be made available for specific inventory Items by creating an
+    item to modifier group association.
+  operationId: modifier.GetModifierGroups
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, item.id, sortOrder, name, id, category.id,
+        showByDefault, negativeSortOrder]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifiers, items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ModifierGroup.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create a modifier group
+  description: >-
+    Create a new modifier group. Modifiers can be associated with a modifier
+    group after it has been created.
+  operationId: modifier.CreateModifierGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifiers, items]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ModifierGroup.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

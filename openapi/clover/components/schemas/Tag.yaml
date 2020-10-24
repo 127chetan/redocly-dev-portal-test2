@@ -1,0 +1,25 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Tag name
+    default: ''
+  showInReporting:
+    type: boolean
+    description: True if tag is a summary label in the reporting app
+    default: 'false'
+  items:
+    type: array
+    description: Items associated with this tag
+    items:
+      $ref: ./Reference.yaml
+  printers:
+    type: array
+    description: Printers associated with this tag
+    items:
+      $ref: ./Reference.yaml

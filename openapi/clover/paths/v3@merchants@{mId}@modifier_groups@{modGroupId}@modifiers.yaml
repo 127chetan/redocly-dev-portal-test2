@@ -1,0 +1,74 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all modifiers belonging to a single modifier group
+  description: Get an array containing the modifiers in a single modifier group.
+  operationId: modifier.GetModifiersByGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, price, name, alternateName, id,
+        modifierGroup.id]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifiers, items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Modifier.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create a modifier
+  description: >-
+    Create a modifier object belonging to the modifier group identified in the
+    URL.
+  operationId: modifier.CreateModifier
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifierGroup]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Modifier.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

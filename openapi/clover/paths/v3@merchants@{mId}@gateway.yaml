@@ -1,0 +1,21 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a merchant's payment gateway configuration
+  description: ''
+  operationId: merchant.GetMerchantGateway
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Gateway.yaml
+  deprecated: false

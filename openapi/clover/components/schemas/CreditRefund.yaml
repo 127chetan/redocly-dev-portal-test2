@@ -1,0 +1,35 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  orderRef:
+    description: The order with which the refund is associated
+    $ref: ./Reference.yaml
+  device:
+    description: >-
+      Device which processed the transaction for this refund, a 128-bit UUID,
+      not a normal base-13 Clover ID.
+    $ref: ./Reference.yaml
+  createdTime:
+    type: integer
+    description: The time when the refund was recorded on the server
+    format: int64
+  clientCreatedTime:
+    type: integer
+    description: The time when the refund was recorded on the client
+    format: int64
+  credit:
+    description: The credit with which the credit refund is associated
+    $ref: ./Reference.yaml
+  employee:
+    $ref: ./Reference.yaml
+  germanInfo:
+    description: German region-specific information
+    $ref: ./GermanInfo.yaml
+  appTracking:
+    description: Tracking information for the app that created this payment.
+    $ref: ./AppTracking.yaml
+  transactionInfo:
+    description: Transaction information
+    $ref: ./TransactionInfo.yaml

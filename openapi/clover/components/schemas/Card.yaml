@@ -1,0 +1,34 @@
+required:
+  - first6
+  - last4
+type: object
+properties:
+  id:
+    type: string
+  first6:
+    type: string
+  last4:
+    type: string
+  firstName:
+    type: string
+  lastName:
+    type: string
+  expirationDate:
+    type: string
+  cardType:
+    type: string
+  token:
+    type: string
+  tokenType:
+    type: string
+    enum:
+      - MULTIPAY
+      - FINANCIAL
+      - CTOKEN
+  modifiedTime:
+    type: integer
+    description: The timestamp from when this card was last updated.
+    format: int64
+  customer:
+    description: Customer who this card belongs to.
+    $ref: ./Reference.yaml

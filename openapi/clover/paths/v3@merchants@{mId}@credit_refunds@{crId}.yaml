@@ -1,0 +1,31 @@
+get:
+  tags:
+    - PAYMENTS
+  summary: Get a credit refund
+  description: ''
+  operationId: pay.GetCreditRefund
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: crId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [credit, germanInfo, appTracking, transactionInfo]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CreditRefund.yaml
+  deprecated: false

@@ -1,0 +1,33 @@
+required:
+  - amount
+  - country
+  - description
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: App subscription country name
+  amount:
+    type: integer
+    description: The cost of the subscription country
+    format: int64
+  country:
+    type: string
+    description: The country of the subscription country
+  description:
+    type: string
+    description: App subscription country name
+  active:
+    type: boolean
+    description: App subscription country active status
+  appSubscription:
+    description: Reference to subscription this subscription country belongs to
+    $ref: ./Reference.yaml
+  installCount:
+    type: integer
+    description: The number of merchants that have this app subscription country installed
+    format: int64

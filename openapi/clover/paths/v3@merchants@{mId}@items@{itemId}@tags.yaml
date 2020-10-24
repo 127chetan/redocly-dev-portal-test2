@@ -1,0 +1,37 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get tags for a single item
+  description: ''
+  operationId: tag.GetItemTags
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: 'Filter fields: [modifiedTime, deleted, name, showInReporting, id]'
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items, printers]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tag.yaml
+  deprecated: false

@@ -1,0 +1,38 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Name of Tax Rule
+  merchant:
+    description: The merchant the tax rule belongs to
+    $ref: ./Merchant.yaml
+  orderType:
+    description: Order Type which to apply the tax rule
+    $ref: ./OrderType.yaml
+  rates:
+    type: array
+    description: Tax rates associated with this rule
+    items:
+      $ref: ./TaxRate.yaml
+  items:
+    type: array
+    description: Items associated with this rule
+    items:
+      $ref: ./Item.yaml
+  createdTime:
+    type: integer
+    description: Timestamp when the tax rule was created
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Timestamp when the tax rule was last modified
+    format: int64
+  deletedTime:
+    type: integer
+    description: Timestamp when tax rule was last deleted
+    format: int64

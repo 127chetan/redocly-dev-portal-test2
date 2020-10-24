@@ -1,0 +1,78 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a single discount
+  description: ''
+  operationId: inventory.GetDiscount
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: discountId
+      in: path
+      description: Discount Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Discount.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update an discount
+  description: ''
+  operationId: inventory.UpdateDiscount
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: discountId
+      in: path
+      description: Discount Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Discount.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete a discount
+  description: ''
+  operationId: inventory.DeleteDiscount
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: discountId
+      in: path
+      description: Discount Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

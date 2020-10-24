@@ -1,0 +1,94 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get a single employee
+  description: >-
+    Returns information for a single employee.  Accepts optional expand query
+    parameters
+  operationId: employee.GetEmployee
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [roles, shifts]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Employee.yaml
+  deprecated: false
+post:
+  tags:
+    - EMPLOYEES
+  summary: Update an employee
+  description: >-
+    Updates information for a single employee. Accepts optional expand query
+    params.
+  operationId: employee.UpdateEmployee
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [shifts, payments, orders, roles]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Employee.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - EMPLOYEES
+  summary: Delete an employee
+  description: >-
+    Deletes a single employee from a merchant, also can't delete the 'owner'
+    employee.
+  operationId: employee.DeleteEmployee
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: empId
+      in: path
+      description: Employee Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

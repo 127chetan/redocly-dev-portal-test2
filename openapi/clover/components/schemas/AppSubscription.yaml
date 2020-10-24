@@ -1,0 +1,42 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: >-
+      DEPRECATED: App subscription name.  Per country pricing in
+      subscriptionCountries.
+  amount:
+    type: integer
+    description: >-
+      DEPRECATED: The cost of the subscription.  Per country pricing in
+      subscriptionCountries.
+    format: int64
+  description:
+    type: string
+    description: >-
+      DEPRECATED: App subscription name.  Per country pricing in
+      subscriptionCountries.
+  active:
+    type: boolean
+    description: >-
+      DEPRECATED: App subscription active status.  Per country pricing in
+      subscriptionCountries.
+  plan:
+    type: boolean
+    description: >-
+      True if special zero cost app pricing for default app in custom service
+      plans.
+  subscriptionCountries:
+    type: array
+    description: Subscription country options for this app subscription
+    items:
+      $ref: ./AppSubscriptionCountry.yaml
+  app:
+    description: Reference to app this subscription belongs to
+    $ref: ./Reference.yaml
+  label:
+    type: string
+    description: App subscription label

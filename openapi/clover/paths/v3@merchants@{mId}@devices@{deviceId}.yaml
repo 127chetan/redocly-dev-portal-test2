@@ -1,0 +1,27 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a single device provisioned to a merchant
+  description: Returns a single device that is provisioned to a merchant.
+  operationId: device.GetMerchantDevice
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: deviceId
+      in: path
+      description: Device Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Device.yaml
+  deprecated: false

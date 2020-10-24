@@ -1,0 +1,92 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a modifier group
+  description: Get a single modifier group by it's UUID
+  operationId: modifier.GetModifierGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifiers, items]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ModifierGroup.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update a modifier group
+  description: >-
+    Update a modifier group. In order to add modifiers use the create modifiers
+    endpoint.
+  operationId: modifier.UpdateModifierGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifiers, items]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ModifierGroup.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete a modifier group
+  description: >-
+    Delete an existing modifier group, identified by UUID. This also deletes all
+    modifiers within that group.
+  operationId: modifier.DeleteModifierGroup
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

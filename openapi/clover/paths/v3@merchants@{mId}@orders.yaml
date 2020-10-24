@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ORDERS
+  summary: Gets a list of orders
+  description: >-
+    Returns a list of orders. See
+    https://docs.clover.com/build/working-with-orders/ for more details.
+  operationId: order.GetOrders
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [employee.id, note, modifiedTime, orderType, touched,
+        cardTransaction.last4, manualTransaction, employee.name, title,
+        device.id, externalReferenceId, clientCreatedTime, total, payType,
+        customer.id, testMode, createdTime, id, state, deletedTime]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [lineItems, serviceCharge, discounts, credits,
+        payments, refunds]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Order.yaml
+  deprecated: false
+post:
+  tags:
+    - ORDERS
+  summary: Create an order
+  description: >-
+    Only supports basic order creation. Valid fields are limited to taxRemoved,
+    note, title, state, testMode, manualTransaction, groupLineItems and
+    orderType. Adding line items must be done in separate calls.
+  operationId: order.CreateOrder
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Order.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,53 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a single tip suggestion
+  description: ''
+  operationId: merchant.GetTipSuggestion
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TipSuggestion.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Update a single tip suggestion
+  description: ''
+  operationId: merchant.UpdateTipSuggestion
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/TipSuggestion.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

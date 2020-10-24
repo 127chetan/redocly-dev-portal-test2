@@ -1,0 +1,46 @@
+type: object
+properties:
+  lineItem:
+    description: The line item that was voided
+    $ref: ./LineItem.yaml
+  merchant:
+    $ref: ./Reference.yaml
+  reason:
+    type: string
+    description: Why was the line item voided
+  removedBy:
+    description: Employee who voided the item
+    $ref: ./Reference.yaml
+  approvedBy:
+    description: >-
+      Optional. Employee who approved deletion of line item in case current
+      employee does not have the permission
+    $ref: ./Reference.yaml
+  deleteType:
+    type: string
+    description: >-
+      Indicates if the line item was deleted as part of order delete or a single
+      item delete. 
+  device:
+    description: Optional. Device used to void the line item
+    $ref: ./Reference.yaml
+  createdBy:
+    description: Employee who created the order from which the line item was voided
+    $ref: ./Reference.yaml
+  deletedTime:
+    type: integer
+    description: Timestamp of when this line item was deleted
+    format: int64
+  environment:
+    type: string
+    description: Which environment was this recorded in
+  clientEventType:
+    type: string
+    description: >-
+      What event on the client removed this? Was it because of moving a table?
+      Or was it plain old deleting a line item?
+    enum:
+      - DELETED_LINE_ITEM
+      - MOVED_TABLE
+      - LEFT_TABLE
+      - CUSTOM_LINE_ITEM_CANCELLED

@@ -1,0 +1,43 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get a merchant's properties
+  description: ''
+  operationId: merchant.GetMerchantProperties
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MerchantProperties.yaml
+  deprecated: false
+post:
+  tags:
+    - MERCHANTS
+  summary: Update merchant properties
+  description: ''
+  operationId: merchant.UpdateMerchantProperties
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/MerchantProperties.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

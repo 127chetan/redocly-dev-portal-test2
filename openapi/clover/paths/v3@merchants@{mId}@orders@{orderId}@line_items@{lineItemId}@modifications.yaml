@@ -1,0 +1,39 @@
+post:
+  tags:
+    - ORDERS
+  summary: Apply a modification to a line item
+  description: >-
+    Create a modification, a record of a modifier as it exists at the time it is
+    applied to the lineItem. To view current modifications use an
+    'expand=modifications' query parameter on the lineItem. To learn more about
+    applying a modification see:
+    https://docs.clover.com/build/working-with-orders/#add-item-modifiers
+  operationId: order.ApplyModification
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: lineItemId
+      in: path
+      description: Line Item Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Modification.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

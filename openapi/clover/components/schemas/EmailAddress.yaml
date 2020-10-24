@@ -1,0 +1,16 @@
+required:
+  - emailAddress
+type: object
+properties:
+  id:
+    type: string
+  emailAddress:
+    type: string
+  verifiedTime:
+    type: integer
+    format: int64
+  primaryEmail:
+    type: boolean
+  customer:
+    description: Customer who this email address belongs to.
+    $ref: ./Reference.yaml

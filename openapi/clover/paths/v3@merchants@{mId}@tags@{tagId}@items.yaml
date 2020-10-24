@@ -1,0 +1,40 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all items for a single tag
+  description: ''
+  operationId: tag.GetTaggedItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: tagId
+      in: path
+      description: Tag Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, hidden, itemCode, alternateName,
+        option.id, isRevenue, deleted, item.id, price, name, id, sku,
+        itemGroup.id]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [items, printers]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Item.yaml
+  deprecated: false

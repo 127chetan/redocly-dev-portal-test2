@@ -1,0 +1,15 @@
+type: object
+properties:
+  bill_pay_indicator:
+    type: string
+    enum:
+      - Single
+      - Recurring
+      - Installment
+      - Deferred
+  invoice_number:
+    type: string
+    description: Invoice number of the installment transaction
+  description:
+    type: string
+    description: Description of the installment transaction

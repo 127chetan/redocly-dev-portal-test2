@@ -1,0 +1,85 @@
+get:
+  tags:
+    - ORDERS
+  summary: Get all line items for an order
+  description: ''
+  operationId: order.GetOrderLineItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [employee, orderType, discounts, modifications,
+        taxRates, payments]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/LineItem.yaml
+  deprecated: false
+post:
+  tags:
+    - ORDERS
+  summary: Create a new line item
+  description: Requests must include a price or inventory item id.
+  operationId: order.CreateLineItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/LineItem.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - ORDERS
+  summary: Delete all the line items in an order
+  description: ''
+  operationId: order.DeleteLineItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

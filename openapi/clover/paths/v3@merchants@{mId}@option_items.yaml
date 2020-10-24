@@ -1,0 +1,17 @@
+post:
+  tags:
+    - INVENTORY
+  summary: Create or delete item/option association
+  description: See the description for 'get all item groups'.
+  operationId: inventory.CreateOrDeleteOptionItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

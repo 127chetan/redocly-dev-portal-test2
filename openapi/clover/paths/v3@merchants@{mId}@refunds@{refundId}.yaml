@@ -1,0 +1,33 @@
+get:
+  tags:
+    - PAYMENTS
+  summary: Get a single refund
+  description: ''
+  operationId: pay.GetRefund
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: refundId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [payment, germanInfo, appTracking, employee,
+        overrideMerchantTender, serviceCharge, lineItems, transactionInfo]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Refund.yaml
+  deprecated: false

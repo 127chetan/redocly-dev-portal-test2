@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Tax rate id.
+  name:
+    type: string
+    description: Tax rate name. This field is optional.
+  taxableAmount:
+    type: integer
+    description: >-
+      The sub-total of line items that the tax was based on. For VAT, this
+      amount includes tax. For all others, this amount does not include tax.
+    format: int64
+  rate:
+    type: integer
+    description: The tax rate. 100% = 1e7.
+    format: int64
+  isVat:
+    type: boolean
+    description: Whether the taxable amount includes tax.
+  taxAmount:
+    type: integer
+    description: >-
+      The amount of tax collected. In cases where there are multiple payments
+      for an order then it may be necessary to add an extra cent of tax to the
+      last payment.
+    format: int64
+  transactionRef:
+    description: The refund with which the tax rate is associated
+    $ref: ./Reference.yaml

@@ -1,0 +1,105 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a single modifier
+  description: 'Get a single modifier by it''s group, and it''s UUID'
+  operationId: modifier.GetModifier
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+    - name: modId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifierGroup]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Modifier.yaml
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update a single modifier
+  description: >-
+    Update a modifier. Note that once it has been created, it is not possible to
+    change a modifier's group.
+  operationId: modifier.UpdateModifier
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+    - name: modId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifierGroup]'
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Modifier.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete a single modifier
+  description: Delete a single modifier by it's UUID
+  operationId: modifier.DeleteModifier
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: modGroupId
+      in: path
+      description: Modifier Group Id
+      required: true
+      schema:
+        type: string
+    - name: modId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

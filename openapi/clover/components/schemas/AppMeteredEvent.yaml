@@ -1,0 +1,20 @@
+required:
+  - appMetered
+  - count
+type: object
+properties:
+  id:
+    type: string
+  appMetered:
+    $ref: ./AppMetered.yaml
+  count:
+    type: integer
+    format: int64
+  createdTime:
+    type: integer
+    format: int64
+  modifiedTime:
+    type: integer
+    format: int64
+  charge:
+    $ref: ./Reference.yaml

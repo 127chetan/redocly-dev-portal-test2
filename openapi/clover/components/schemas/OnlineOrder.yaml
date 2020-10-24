@@ -1,0 +1,83 @@
+type: object
+properties:
+  id:
+    type: string
+    description: order id
+  onlineOrderId:
+    type: string
+    description: Online Order id
+  receiptId:
+    type: string
+    description: Receipt id
+  service:
+    description: online order service
+    $ref: ./Reference.yaml
+  provider:
+    description: online order provider
+    $ref: ./Reference.yaml
+  providerId:
+    type: string
+    description: 'Deprecated, please ignore.'
+    enum:
+      - OTHER
+  orderState:
+    type: string
+    description: online order status
+    enum:
+      - CREATED
+      - CONFIRMED
+      - REJECTED
+      - CANCELLED
+      - IN_PREPARATION
+      - READY_FOR_PICKUP
+      - IN_TRANSIT
+      - FULFILLED
+  onlineOrderCustomer:
+    description: the customer who submitted the order request from provider
+    $ref: ./OnlineOrderCustomer.yaml
+  deliverTime:
+    type: integer
+    description: The timestamp the order gets delivered
+    format: int64
+  leadTime:
+    type: integer
+    description: Minutes of the lead time which overrides the default lead time
+    format: int32
+  scheduledPickupTime:
+    type: integer
+    description: The timestamp the order is scheduled to be picked up
+    format: int64
+  reason:
+    type: string
+    description: The reason the online order gets rejected or cancelled
+    enum:
+      - MENU_ITEM_UNAVAILABLE
+      - RESTAURANT_CLOSED
+  note:
+    type: string
+    description: >-
+      An arbitrary string with information about this online order from customer
+      to merchant, may be printed on the order receipt and displayed in apps
+  scheduled:
+    type: boolean
+    description: If the online order is a scheduled order or ASAP order
+    default: 'false'
+  serviceFee:
+    type: integer
+    description: >-
+      amount of the service fee for the fulfillment service, such as delivery
+      fee
+  serviceFeeItem:
+    $ref: ./Reference.yaml
+  createdTime:
+    type: integer
+    description: Timestamp when the online ordering item was created
+    format: int64
+  modifiedTime:
+    type: integer
+    description: Timestamp when the online ordering item was last modified
+    format: int64
+  deletedTime:
+    type: integer
+    description: Timestamp when online ordering item was last deleted
+    format: int64

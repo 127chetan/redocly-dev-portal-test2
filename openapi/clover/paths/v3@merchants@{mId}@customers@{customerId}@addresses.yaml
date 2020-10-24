@@ -1,0 +1,27 @@
+post:
+  tags:
+    - CUSTOMERS
+  summary: Create an address for a customer
+  description: Creates an address associated to a merchant's customer.
+  operationId: handlers.CreateCustomerAddress
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Address.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

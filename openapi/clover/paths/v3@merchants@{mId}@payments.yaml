@@ -1,0 +1,46 @@
+get:
+  tags:
+    - PAYMENTS
+  summary: Get all payments
+  description: >-
+    Retrieve payment information including total amount, tipAmount, taxAmount,
+    and result status.To POST a payment see:
+    https://docs.clover.com/build/developer-pay-api/
+  operationId: pay.GetPayments
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, voidReason, voidPaymentRef.id,
+        cardTransaction.last4, cashTendered, device.id,
+        voidPaymentRef.createdTime, externalReferenceId, result, offline,
+        cardTransaction.transactionNo, voidPaymentRef.employeeId,
+        paymentRefundId, merchantId, createdTime, externalPaymentId, voided, id,
+        tender.id, deletedTime, employee.id, order.modifiedTime, amount,
+        tipAmount, cardType, order.id, clientCreatedTime, customer.id,
+        cardTransaction.captured, cardTransaction.currency, taxAmount,
+        orderType.databaseId]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [tender, externalReferenceId, taxRates, germanInfo,
+        lineItemPayments, cardTransaction, dccInfo, appTracking,
+        paymentAttributes, refunds, order, transactionInfo]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Payment.yaml
+  deprecated: false

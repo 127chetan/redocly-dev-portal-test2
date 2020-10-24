@@ -1,0 +1,49 @@
+put:
+  tags:
+    - INVENTORY
+  summary: 'Update existing inventory items. '
+  description: >-
+    This API is to going to update only the changes present in the payload. Not
+    going to replace the existing inventory items. Use the POST HTTP method to
+    create inventory items. 
+  operationId: inventory.BulkPatchInventoryItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/InventoryItems.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create multiple inventory items.
+  description: >-
+    This API is to create multiple inventory items.  Use the PATCH HTTP method
+    to update existing inventory items.
+  operationId: inventory.BulkCreateInventoryItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/InventoryItems.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

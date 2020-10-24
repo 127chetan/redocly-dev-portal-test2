@@ -1,0 +1,88 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get a single inventory item
+  description: ''
+  operationId: inventory.GetItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [tags, categories, taxRates, modifierGroups,
+        itemStock, options]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Update an existing inventory item
+  description: ''
+  operationId: inventory.UpdateItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [tags, categories, taxRates, modifierGroups,
+        itemStock, options]
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Item.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Delete an inventory item
+  description: ''
+  operationId: inventory.DeleteItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: itemId
+      in: path
+      description: Item Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

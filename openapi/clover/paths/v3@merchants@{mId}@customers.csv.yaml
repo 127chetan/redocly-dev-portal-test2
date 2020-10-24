@@ -1,0 +1,35 @@
+get:
+  tags:
+    - CUSTOMERS
+  summary: Get a list of customers
+  description: Gives information for every customer of a merchant by default.
+  operationId: handlers.GetCustomers
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [customerSince, firstName, lastName, emailAddress,
+        phoneNumber, marketingAllowed, fullName, id, deletedTime]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [addresses, emailAddresses, phoneNumbers, cards,
+        metadata]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Customer.yaml
+  deprecated: false

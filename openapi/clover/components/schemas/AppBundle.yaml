@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: The name of the bundle
+  price:
+    type: integer
+    description: 'DEPRECATED: Instead use per country pricing in bundleCountries'
+    format: int64
+  pricePerDevice:
+    type: integer
+    description: 'DEPRECATED: Instead use per country pricing in bundleCountries'
+    format: int64
+  includedApps:
+    type: array
+    items:
+      $ref: ./Reference.yaml
+  bundleCountries:
+    type: array
+    description: Bundle country options for this app bundle
+    items:
+      $ref: ./AppBundleCountry.yaml

@@ -1,0 +1,59 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: The name of the merchant plan
+  description:
+    type: string
+    description: Description of the plan
+  price:
+    type: integer
+    format: int64
+  trialDays:
+    type: integer
+    description: 'Transient field, the free trial period, as defined in this plan''s group.'
+    format: int64
+  trialExpirationTime:
+    type: integer
+    description: >-
+      Date/time this plan's trial will expire for the merchant with this plan.
+      This is a transient value only applicable to the merchant assigned to this
+      plan.
+    format: int64
+  modules:
+    type: array
+    items:
+      $ref: ./Module.yaml
+  appBundle:
+    $ref: ./AppBundle.yaml
+  defaultPlan:
+    type: boolean
+    description: >-
+      If true and multiple plans of this code then treat as default plan for
+      reseller. Cannot use word default.
+  recommended:
+    type: boolean
+    description: >-
+      True if plan metadata indicates this plan should be recommended in OOBE
+      plan selection.
+  pricingModel:
+    type: string
+    description: Pricing model for plan.
+    enum:
+      - PER_MONTH
+      - PER_DEVICE
+      - TIERED
+      - FREE
+      - SUPPRESSED
+  bogo:
+    type: boolean
+    description: If true then plan offers by one device get one free.
+  weight:
+    type: integer
+    description: >-
+      Represents the importance or value the planCode has. Helpful for
+      determining when a merchant is downgrading or upgrading their plan
+    format: int64

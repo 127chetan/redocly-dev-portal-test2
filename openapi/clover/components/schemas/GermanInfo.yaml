@@ -1,0 +1,56 @@
+type: object
+properties:
+  cardTrack2:
+    type: string
+  cardSequenceNumber:
+    type: string
+  transactionCaseGermany:
+    type: string
+  transactionTypeGermany:
+    type: string
+  terminalID:
+    type: string
+  traceNumber:
+    type: string
+  oldTraceNumber:
+    type: string
+  receiptNumber:
+    type: string
+  transactionAID:
+    type: string
+  transactionMSApp:
+    type: string
+  transactionScriptResults:
+    type: string
+  receiptType:
+    type: string
+  customerTransactionDOLValues:
+    type: string
+  merchantTransactionDOLValues:
+    type: string
+  merchantJournalDOL:
+    type: string
+  merchantJournalDOLValues:
+    type: string
+  configMerchantId:
+    type: string
+  configProductLabel:
+    type: string
+  hostResponseAidParBMP53:
+    type: string
+  hostResponsePrintDataBM60:
+    type: string
+  sepaElvReceiptFormat:
+    type: string
+  sepaElvExtAppLabel:
+    type: string
+  sepaElvPreNotification:
+    type: string
+  sepaElvMandate:
+    type: string
+  sepaElvCreditorId:
+    type: string
+  sepaElvMandateId:
+    type: string
+  sepaElvIban:
+    type: string

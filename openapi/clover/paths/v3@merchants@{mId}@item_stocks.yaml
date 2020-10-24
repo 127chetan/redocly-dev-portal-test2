@@ -1,0 +1,17 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get the stock of all inventory items
+  description: ''
+  operationId: inventory.GetItemStocks
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,86 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all inventory items
+  description: ''
+  operationId: inventory.GetItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, hidden, itemCode, tags.id, alternateName,
+        option.id, isRevenue, tags.name, deleted, item.id, price, name, id, sku,
+        itemGroup.id]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [tags, categories, taxRates, modifierGroups,
+        itemStock, options]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+post:
+  tags:
+    - INVENTORY
+  summary: Create an inventory item
+  description: ''
+  operationId: inventory.CreateItem
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [tags, categories, taxRates, modifierGroups,
+        itemStock, options]
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Item.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - INVENTORY
+  summary: Bulk delete inventory items
+  description: >-
+    Deletes multiple inventory items in a single operation. Add a query string
+    with the parameter itemIds and a comma-separated list of one or more itemId
+    values.
+
+
+    For example, to delete three items at once, make a request like the
+    following example:
+     {merchantId}/items?itemIds=[itemId],[itemId],[itemId]
+  operationId: inventory.BulkDeleteItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

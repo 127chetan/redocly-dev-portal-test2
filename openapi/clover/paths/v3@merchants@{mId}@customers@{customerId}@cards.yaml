@@ -1,0 +1,27 @@
+post:
+  tags:
+    - CUSTOMERS
+  summary: Create a credit/debit card entry for a customer
+  description: '"first6" and "last4" fields are required.'
+  operationId: handlers.CreateCustomerCard
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Card.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

@@ -1,0 +1,17 @@
+post:
+  tags:
+    - INVENTORY
+  summary: Create or delete tag items
+  description: ''
+  operationId: tag.CreateOrDeleteTagItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

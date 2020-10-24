@@ -1,0 +1,33 @@
+get:
+  tags:
+    - INVENTORY
+  summary: Get all modifiers
+  description: Get all modifiers regardless of their modifier group.
+  operationId: modifier.GetModifiers
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [modifiedTime, price, name, alternateName, id,
+        modifierGroup.id]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [modifierGroup]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Modifier.yaml
+  deprecated: false

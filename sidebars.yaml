@@ -1,4 +1,6 @@
 training:
+# The integration with OpenAPI requires this *.page.yaml file (and it's used by reference in the navbar or sidebars)
+  - page: openapi/clover.page.yaml
   - page: developer-portal/index.md
   - group: Training exercises
     expanded: true
@@ -41,31 +43,8 @@ training:
   - group: Petstore reference
     expanded: false
     pages:
-      - page: openapi/docs.json
+      - page: openapi/reference.page.yaml
 
-  - group: Admin
-    expanded: true
-    pages:
-      - group: Routine
-        expanded: true
-        pages:
-          - group: Rock
-            expanded: true
-            pages:
-              - group: Paper
-                expanded: true
-                pages:
-                  - group: Scissors
-                    expanded: true
-                    pages:
-                      - group: 1-2-3
-                        expanded: true
-                        pages:
-                          - group: Go
-                            expanded: true
-                            pages:
-                              - label: Upgrading
-                                # page: developer-portal/upgrade.md
 alternative:
   - page: developer-portal/sidebar-alternative.md
     label: Alternative sidebar example

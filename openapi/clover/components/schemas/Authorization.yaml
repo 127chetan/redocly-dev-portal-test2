@@ -1,0 +1,69 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  payment:
+    description: Payment that the auth was opened with
+    $ref: ./Payment.yaml
+  tabName:
+    type: string
+    description: Name of tab
+  amount:
+    type: integer
+    description: Amount authorized
+    format: int64
+  cardType:
+    type: string
+    description: Type of credit card used for authorization
+    enum:
+      - VISA
+      - MC
+      - AMEX
+      - DISCOVER
+      - DINERS_CLUB
+      - JCB
+      - MAESTRO
+      - SOLO
+      - LASER
+      - CHINA_UNION_PAY
+      - CARTE_BLANCHE
+      - UNKNOWN
+      - GIFT_CARD
+      - EBT
+      - GIROCARD
+      - INTERAC
+      - OTHER
+  last4:
+    type: string
+    description: Last 4 digits of credit card used for authorization
+  authcode:
+    type: string
+    description: Authorization code
+  token:
+    type: string
+    description: Token used for the authorization
+  type:
+    type: string
+    enum:
+      - TAB
+      - AUTH
+  note:
+    type: string
+  externalReferenceId:
+    type: string
+    description: The external reference id if associated with the payment
+  closingPayment:
+    description: Payment that the auth was closed with
+    $ref: ./Payment.yaml
+  createdTime:
+    type: integer
+    description: Time authorization was recorded on server
+    format: int64
+  additionalCharges:
+    type: array
+    description: >-
+      Additional charges associated with the authorization. For incremental
+      auth, it is the additional charge on total auth amount.
+    items:
+      $ref: ./AdditionalChargeAmount.yaml

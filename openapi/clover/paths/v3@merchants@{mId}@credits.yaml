@@ -1,0 +1,37 @@
+get:
+  tags:
+    - PAYMENTS
+  summary: Get a list of credits
+  description: ''
+  operationId: pay.GetCredits
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [employee.id, order.modifiedTime, amount, cardType,
+        order.id, failed, device.id, merchantTender.databaseId,
+        externalReferenceId, result, clientCreatedTime, merchantId, id,
+        tender.id, taxAmount, orderType.databaseId, deletedTime]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [dccInfo, germanInfo, appTracking, tender, employee,
+        cardTransaction, order, taxRates, transactionInfo]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Credit.yaml
+  deprecated: false

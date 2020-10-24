@@ -1,0 +1,273 @@
+x-samples-languages:
+  - curl
+  - node
+  - javascript
+  - java
+  - swift
+  - csharp
+openapi: 3.0.1
+info:
+  title: Clover Developer APIs
+  version: '3.0'
+externalDocs:
+  url: 'https://docs.clover.com'
+servers:
+  - url: 'https://sandbox.dev.clover.com'
+security:
+  - ApiToken: []
+paths:
+  '/v3/merchants/{mId}':
+    $ref: 'paths/v3@merchants@{mId}.yaml'
+  '/v3/merchants/{mId}/address':
+    $ref: 'paths/v3@merchants@{mId}@address.yaml'
+  '/v3/merchants/{mId}/gateway':
+    $ref: 'paths/v3@merchants@{mId}@gateway.yaml'
+  '/v3/merchants/{mId}/properties':
+    $ref: 'paths/v3@merchants@{mId}@properties.yaml'
+  '/v3/merchants/{mId}/default_service_charge':
+    $ref: 'paths/v3@merchants@{mId}@default_service_charge.yaml'
+  '/v3/merchants/{mId}/sync/{table}':
+    $ref: 'paths/v3@merchants@{mId}@sync@{table}.yaml'
+  '/v3/merchants/{mId}/tip_suggestions':
+    $ref: 'paths/v3@merchants@{mId}@tip_suggestions.yaml'
+  '/v3/merchants/{mId}/tip_suggestions/{tId}':
+    $ref: 'paths/v3@merchants@{mId}@tip_suggestions@{tId}.yaml'
+  '/v3/merchants/{mId}/order_types':
+    $ref: 'paths/v3@merchants@{mId}@order_types.yaml'
+  '/v3/merchants/{mId}/order_types/{orderTypeId}':
+    $ref: 'paths/v3@merchants@{mId}@order_types@{orderTypeId}.yaml'
+  '/v3/merchants/{mId}/order_type_categories':
+    $ref: 'paths/v3@merchants@{mId}@order_type_categories.yaml'
+  '/v3/merchants/{mId}/system_order_types':
+    $ref: 'paths/v3@merchants@{mId}@system_order_types.yaml'
+  '/v3/merchants/{mId}/roles':
+    $ref: 'paths/v3@merchants@{mId}@roles.yaml'
+  '/v3/merchants/{mId}/roles/{roleId}':
+    $ref: 'paths/v3@merchants@{mId}@roles@{roleId}.yaml'
+  '/v3/merchants/{mId}/tenders':
+    $ref: 'paths/v3@merchants@{mId}@tenders.yaml'
+  '/v3/merchants/{mId}/tenders/{tenderId}':
+    $ref: 'paths/v3@merchants@{mId}@tenders@{tenderId}.yaml'
+  '/v3/merchants/{mId}/opening_hours':
+    $ref: 'paths/v3@merchants@{mId}@opening_hours.yaml'
+  '/v3/merchants/{mId}/opening_hours/{hId}':
+    $ref: 'paths/v3@merchants@{mId}@opening_hours@{hId}.yaml'
+  '/v3/merchants/{mId}/devices':
+    $ref: 'paths/v3@merchants@{mId}@devices.yaml'
+  '/v3/merchants/{mId}/devices/{deviceId}':
+    $ref: 'paths/v3@merchants@{mId}@devices@{deviceId}.yaml'
+  '/v3/merchants/{mId}/cash_events':
+    $ref: 'paths/v3@merchants@{mId}@cash_events.yaml'
+  '/v3/merchants/{mId}/employees/{empId}/cash_events':
+    $ref: 'paths/v3@merchants@{mId}@employees@{empId}@cash_events.yaml'
+  '/v3/merchants/{mId}/devices/{deviceId}/cash_events':
+    $ref: 'paths/v3@merchants@{mId}@devices@{deviceId}@cash_events.yaml'
+  '/v3/merchants/{mId}/customers.csv':
+    $ref: 'paths/v3@merchants@{mId}@customers.csv.yaml'
+  '/v3/merchants/{mId}/customers':
+    $ref: 'paths/v3@merchants@{mId}@customers.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/phone_numbers':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@phone_numbers.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/phone_numbers/{phoneId}':
+    $ref: >-
+      paths/v3@merchants@{mId}@customers@{customerId}@phone_numbers@{phoneId}.yaml
+  '/v3/merchants/{mId}/customers/{customerId}/email_addresses':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@email_addresses.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/email_addresses/{emailId}':
+    $ref: >-
+      paths/v3@merchants@{mId}@customers@{customerId}@email_addresses@{emailId}.yaml
+  '/v3/merchants/{mId}/customers/{customerId}/addresses':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@addresses.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/addresses/{addressId}':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@addresses@{addressId}.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/cards':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@cards.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/cards/{cardId}':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@cards@{cardId}.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/metadata':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@metadata.yaml'
+  '/v3/merchants/{mId}/customers/{customerId}/activity_summary':
+    $ref: 'paths/v3@merchants@{mId}@customers@{customerId}@activity_summary.yaml'
+  '/v3/merchants/{mId}/employees':
+    $ref: 'paths/v3@merchants@{mId}@employees.yaml'
+  '/v3/merchants/{mId}/employees/{empId}':
+    $ref: 'paths/v3@merchants@{mId}@employees@{empId}.yaml'
+  '/v3/merchants/{mId}/shifts':
+    $ref: 'paths/v3@merchants@{mId}@shifts.yaml'
+  '/v3/merchants/{mId}/shifts/{shiftId}':
+    $ref: 'paths/v3@merchants@{mId}@shifts@{shiftId}.yaml'
+  '/v3/merchants/{mId}/shifts.csv':
+    $ref: 'paths/v3@merchants@{mId}@shifts.csv.yaml'
+  '/v3/merchants/{mId}/employees/{empId}/shifts':
+    $ref: 'paths/v3@merchants@{mId}@employees@{empId}@shifts.yaml'
+  '/v3/merchants/{mId}/employees/{empId}/shifts/{shiftId}':
+    $ref: 'paths/v3@merchants@{mId}@employees@{empId}@shifts@{shiftId}.yaml'
+  '/v3/merchants/{mId}/employees/{empId}/orders':
+    $ref: 'paths/v3@merchants@{mId}@employees@{empId}@orders.yaml'
+  '/v3/merchants/{mId}/employee_cards':
+    $ref: 'paths/v3@merchants@{mId}@employee_cards.yaml'
+  '/v3/merchants/{mId}/employee_cards/{employeeCardId}':
+    $ref: 'paths/v3@merchants@{mId}@employee_cards@{employeeCardId}.yaml'
+  '/v3/merchants/{mId}/items':
+    $ref: 'paths/v3@merchants@{mId}@items.yaml'
+  '/v3/merchants/{mId}/items_no_revenue_class':
+    $ref: 'paths/v3@merchants@{mId}@items_no_revenue_class.yaml'
+  '/v3/merchants/{mId}/items/{itemId}':
+    $ref: 'paths/v3@merchants@{mId}@items@{itemId}.yaml'
+  '/v3/merchants/{mId}/bulk_items':
+    $ref: 'paths/v3@merchants@{mId}@bulk_items.yaml'
+  '/v3/merchants/{mId}/item_stocks':
+    $ref: 'paths/v3@merchants@{mId}@item_stocks.yaml'
+  '/v3/merchants/{mId}/item_stocks/{itemId}':
+    $ref: 'paths/v3@merchants@{mId}@item_stocks@{itemId}.yaml'
+  '/v3/merchants/{mId}/item_groups':
+    $ref: 'paths/v3@merchants@{mId}@item_groups.yaml'
+  '/v3/merchants/{mId}/item_groups/{itemGroupId}':
+    $ref: 'paths/v3@merchants@{mId}@item_groups@{itemGroupId}.yaml'
+  '/v3/merchants/{mId}/tags':
+    $ref: 'paths/v3@merchants@{mId}@tags.yaml'
+  '/v3/merchants/{mId}/tags/{tagId}':
+    $ref: 'paths/v3@merchants@{mId}@tags@{tagId}.yaml'
+  '/v3/merchants/{mId}/items/{itemId}/tags':
+    $ref: 'paths/v3@merchants@{mId}@items@{itemId}@tags.yaml'
+  '/v3/merchants/{mId}/tags/{tagId}/items':
+    $ref: 'paths/v3@merchants@{mId}@tags@{tagId}@items.yaml'
+  '/v3/merchants/{mId}/tag_items':
+    $ref: 'paths/v3@merchants@{mId}@tag_items.yaml'
+  '/v3/merchants/{mId}/tax_rates':
+    $ref: 'paths/v3@merchants@{mId}@tax_rates.yaml'
+  '/v3/merchants/{mId}/tax_rates/{taxId}':
+    $ref: 'paths/v3@merchants@{mId}@tax_rates@{taxId}.yaml'
+  '/v3/merchants/{mId}/categories':
+    $ref: 'paths/v3@merchants@{mId}@categories.yaml'
+  '/v3/merchants/{mId}/categories/{catId}':
+    $ref: 'paths/v3@merchants@{mId}@categories@{catId}.yaml'
+  '/v3/merchants/{mId}/categories/{catId}/items':
+    $ref: 'paths/v3@merchants@{mId}@categories@{catId}@items.yaml'
+  '/v3/merchants/{mId}/items/{itemId}/categories':
+    $ref: 'paths/v3@merchants@{mId}@items@{itemId}@categories.yaml'
+  '/v3/merchants/{mId}/category_items':
+    $ref: 'paths/v3@merchants@{mId}@category_items.yaml'
+  '/v3/merchants/{mId}/tax_rate_items':
+    $ref: 'paths/v3@merchants@{mId}@tax_rate_items.yaml'
+  '/v3/merchants/{mId}/tax_rates/{taxId}/items':
+    $ref: 'paths/v3@merchants@{mId}@tax_rates@{taxId}@items.yaml'
+  '/v3/merchants/{mId}/modifier_groups':
+    $ref: 'paths/v3@merchants@{mId}@modifier_groups.yaml'
+  '/v3/merchants/{mId}/modifier_groups/{modGroupId}':
+    $ref: 'paths/v3@merchants@{mId}@modifier_groups@{modGroupId}.yaml'
+  '/v3/merchants/{mId}/item_modifier_groups':
+    $ref: 'paths/v3@merchants@{mId}@item_modifier_groups.yaml'
+  '/v3/merchants/{mId}/modifier_group_sort_orders':
+    $ref: 'paths/v3@merchants@{mId}@modifier_group_sort_orders.yaml'
+  '/v3/merchants/{mId}/modifier_groups/{modGroupId}/layout':
+    $ref: 'paths/v3@merchants@{mId}@modifier_groups@{modGroupId}@layout.yaml'
+  '/v3/merchants/{mId}/modifiers':
+    $ref: 'paths/v3@merchants@{mId}@modifiers.yaml'
+  '/v3/merchants/{mId}/modifier_groups/{modGroupId}/modifiers':
+    $ref: 'paths/v3@merchants@{mId}@modifier_groups@{modGroupId}@modifiers.yaml'
+  '/v3/merchants/{mId}/modifier_groups/{modGroupId}/modifiers/{modId}':
+    $ref: >-
+      paths/v3@merchants@{mId}@modifier_groups@{modGroupId}@modifiers@{modId}.yaml
+  '/v3/merchants/{mId}/attributes':
+    $ref: 'paths/v3@merchants@{mId}@attributes.yaml'
+  '/v3/merchants/{mId}/attributes/{attributeId}':
+    $ref: 'paths/v3@merchants@{mId}@attributes@{attributeId}.yaml'
+  '/v3/merchants/{mId}/options':
+    $ref: 'paths/v3@merchants@{mId}@options.yaml'
+  '/v3/merchants/{mId}/attributes/{attributeId}/options':
+    $ref: 'paths/v3@merchants@{mId}@attributes@{attributeId}@options.yaml'
+  '/v3/merchants/{mId}/attributes/{attributeId}/options/{optionId}':
+    $ref: 'paths/v3@merchants@{mId}@attributes@{attributeId}@options@{optionId}.yaml'
+  '/v3/merchants/{mId}/option_items':
+    $ref: 'paths/v3@merchants@{mId}@option_items.yaml'
+  '/v3/merchants/{mId}/discounts':
+    $ref: 'paths/v3@merchants@{mId}@discounts.yaml'
+  '/v3/merchants/{mId}/discounts/{discountId}':
+    $ref: 'paths/v3@merchants@{mId}@discounts@{discountId}.yaml'
+  '/v3/merchants/{mId}/tax_rules':
+    $ref: 'paths/v3@merchants@{mId}@tax_rules.yaml'
+  '/v3/merchants/{mId}/tax_rules/{taxRuleId}':
+    $ref: 'paths/v3@merchants@{mId}@tax_rules@{taxRuleId}.yaml'
+  '/v3/apps/{appId}/merchants/{mId}/notifications':
+    $ref: 'paths/v3@apps@{appId}@merchants@{mId}@notifications.yaml'
+  '/v3/apps/{appId}/devices/{deviceId}/notifications':
+    $ref: 'paths/v3@apps@{appId}@devices@{deviceId}@notifications.yaml'
+  '/v3/merchants/{mId}/orders':
+    $ref: 'paths/v3@merchants@{mId}@orders.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/discounts':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@discounts.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/discounts/{discountId}':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@discounts@{discountId}.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/line_items':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@line_items.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/line_items/{lineItemId}':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@line_items@{lineItemId}.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/line_items/{lineItemId}/discounts':
+    $ref: >-
+      paths/v3@merchants@{mId}@orders@{orderId}@line_items@{lineItemId}@discounts.yaml
+  '/v3/merchants/{mId}/orders/{orderId}/line_items/{lineItemId}/discounts/{discountId}':
+    $ref: >-
+      paths/v3@merchants@{mId}@orders@{orderId}@line_items@{lineItemId}@discounts@{discountId}.yaml
+  '/v3/merchants/{mId}/orders/{orderId}/line_items/{lineItemId}/modifications':
+    $ref: >-
+      paths/v3@merchants@{mId}@orders@{orderId}@line_items@{lineItemId}@modifications.yaml
+  '/v3/merchants/{mId}/orders/{orderId}/line_items/{lineItemId}/modifications/{modificationId}':
+    $ref: >-
+      paths/v3@merchants@{mId}@orders@{orderId}@line_items@{lineItemId}@modifications@{modificationId}.yaml
+  '/v3/merchants/{mId}/orders/{orderId}/bulk_line_items':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@bulk_line_items.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/payments':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@payments.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/service_charge':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@service_charge.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/service_charge/{chargeId}':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@service_charge@{chargeId}.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/voided_line_items':
+    $ref: 'paths/v3@merchants@{mId}@orders@{orderId}@voided_line_items.yaml'
+  '/v3/merchants/{mId}/voided_line_items':
+    $ref: 'paths/v3@merchants@{mId}@voided_line_items.yaml'
+  '/v3/merchants/{mId}/voided_line_items/totals':
+    $ref: 'paths/v3@merchants@{mId}@voided_line_items@totals.yaml'
+  '/v3/merchants/{mId}/orders/{orderId}/line_items/{oldLineItemId}/exchange/{lineItemId}':
+    $ref: >-
+      paths/v3@merchants@{mId}@orders@{orderId}@line_items@{oldLineItemId}@exchange@{lineItemId}.yaml
+  '/v3/merchants/{mId}/authorizations':
+    $ref: 'paths/v3@merchants@{mId}@authorizations.yaml'
+  '/v3/merchants/{mId}/authorizations/{authId}':
+    $ref: 'paths/v3@merchants@{mId}@authorizations@{authId}.yaml'
+  '/v3/merchants/{mId}/payments':
+    $ref: 'paths/v3@merchants@{mId}@payments.yaml'
+  '/v3/merchants/{mId}/payments/{payId}':
+    $ref: 'paths/v3@merchants@{mId}@payments@{payId}.yaml'
+  '/v3/merchants/{mId}/employees/{empId}/payments':
+    $ref: 'paths/v3@merchants@{mId}@employees@{empId}@payments.yaml'
+  '/v3/merchants/{mId}/refunds':
+    $ref: 'paths/v3@merchants@{mId}@refunds.yaml'
+  '/v3/merchants/{mId}/refunds/{refundId}':
+    $ref: 'paths/v3@merchants@{mId}@refunds@{refundId}.yaml'
+  '/v3/merchants/{mId}/credits':
+    $ref: 'paths/v3@merchants@{mId}@credits.yaml'
+  '/v3/merchants/{mId}/credits/{creditId}':
+    $ref: 'paths/v3@merchants@{mId}@credits@{creditId}.yaml'
+  '/v3/merchants/{mId}/credit_refunds':
+    $ref: 'paths/v3@merchants@{mId}@credit_refunds.yaml'
+  '/v3/merchants/{mId}/credit_refunds/{crId}':
+    $ref: 'paths/v3@merchants@{mId}@credit_refunds@{crId}.yaml'
+  '/v3/apps/{appId}/merchants/{mId}/billing_info':
+    $ref: 'paths/v3@apps@{appId}@merchants@{mId}@billing_info.yaml'
+  '/v3/apps/{appId}/merchants/{mId}/metereds/{meteredId}':
+    $ref: 'paths/v3@apps@{appId}@merchants@{mId}@metereds@{meteredId}.yaml'
+  '/v3/apps/{appId}/merchants/{mId}/metereds/{meteredId}/events/{eventId}':
+    $ref: >-
+      paths/v3@apps@{appId}@merchants@{mId}@metereds@{meteredId}@events@{eventId}.yaml
+components:
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      name: access_token
+      in: query

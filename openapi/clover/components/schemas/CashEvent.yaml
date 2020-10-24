@@ -1,0 +1,31 @@
+type: object
+properties:
+  type:
+    type: string
+    description: The type of event that occurred
+    enum:
+      - LOAD
+      - TRANSACTION
+      - OPEN
+      - ADJUSTMENT
+      - COUNT
+      - UNLOAD
+  amountChange:
+    type: integer
+    description: 'The amount that was either added, removed of modified by the event'
+    format: int64
+  timestamp:
+    type: integer
+    description: Time at which the event was executed
+  note:
+    type: string
+    description: Any additional information regarding the event
+  employee:
+    description: The employee who performed the event
+    $ref: ./Employee.yaml
+  device:
+    description: The device that initiated the event
+    $ref: ./Device.yaml
+  merchant:
+    description: The event occurred for this merchant.
+    $ref: ./Reference.yaml

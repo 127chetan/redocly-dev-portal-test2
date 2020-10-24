@@ -1,0 +1,143 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier.
+  item:
+    description: >-
+      A reference to the inventory item that was used to create this line item.
+      Note that since this a reference the item can be changed and deleted any
+      time such that it no longer matches this line item.
+    $ref: ./Reference.yaml
+  name:
+    type: string
+    description: Line item name.
+  alternateName:
+    type: string
+    description: Alternate name of the line item.
+  price:
+    type: integer
+    description: >-
+      Price of the item, typically in cents of merchant currency. When unit
+      quantity is not null then this is the price for a single unit and is not
+      the complete price.
+    format: int64
+  priceWithModifiers:
+    type: integer
+    description: >-
+      Price of item after adding all modifications. This is used only for
+      reporting.
+    format: int64
+  priceWithModifiersAndItemAndOrderDiscounts:
+    type: integer
+    description: >-
+      Price of item after adding all modifications and subtracting all line item
+      and order level discounts. This is used only for reporting.
+    format: int64
+  unitQty:
+    type: integer
+    description: >-
+      Unit quantity if this line item is priced by quantity, or null if the item
+      is not priced by quantity. The value is a fixed-point integer with scaling
+      factor of 1000 (e.g. if charging by ounces then the value should be set to
+      2500 for 2.5 ounces). To compute the complete price perform the following
+      calculation: PRICE * (UNIT QTY / 1000).
+  unitName:
+    type: string
+    description: 'Unit name (e.g. oz, lb, etc) if priced by unit, otherwise null.'
+  itemCode:
+    type: string
+  note:
+    type: string
+  printed:
+    type: boolean
+    description: >-
+      True if this line item has been printed out on an order printer at least
+      once already.
+    default: 'false'
+  exchangedLineItem:
+    $ref: ./Reference.yaml
+  binName:
+    type: string
+  userData:
+    type: string
+  createdTime:
+    type: integer
+    format: int64
+  orderClientCreatedTime:
+    type: integer
+    format: int64
+  discounts:
+    type: array
+    description: >-
+      List of discounts applied to the line item. Each line item on an order may
+      have zero or more percentage or amount discounts. Line item discounts are
+      separate from order-level discounts (which are applied to the order
+      subtotal).
+    items:
+      $ref: ./Discount.yaml
+  orderLevelDiscounts:
+    type: array
+    description: >-
+      List of order level discounts attributed to this line item. Amounts are
+      rounded to the nearest penny. This is for reporting purposes only. These
+      rounding approximates are not used when calculating the transaction.
+    items:
+      $ref: ./Discount.yaml
+  discountAmount:
+    type: integer
+    description: >-
+      Unnamed fixed discount amount in cents. Or, in reporting, this may be the
+      calculated sum of all the line item discounts.
+  orderLevelDiscountAmount:
+    type: integer
+    description: >-
+      The calculated sum of order level discounts attributed, approximately to
+      the nearest cent, to this the line item. This is only used in reporting.
+    format: int64
+  exchanged:
+    type: boolean
+    default: 'false'
+  modifications:
+    type: array
+    description: List of references to modifications applied to this line item.
+    items:
+      $ref: ./Modification.yaml
+  tags:
+    type: array
+    description: List of tags associated with this line item.
+    items:
+      $ref: ./Tag.yaml
+  refunded:
+    type: boolean
+    description: True if this line item has been refunded
+    default: 'false'
+  refund:
+    description: direct item refund
+    $ref: ./Refund.yaml
+  isRevenue:
+    type: boolean
+    description: >-
+      True if this item should be counted as revenue, for example gift cards and
+      donations would not.
+    default: 'false'
+  taxRates:
+    type: array
+    description: Tax rates that apply to this line item
+    items:
+      $ref: ./TaxRate.yaml
+  payments:
+    type: array
+    description: Payments that apply to this line item
+    items:
+      $ref: ./LineItemPayment.yaml
+  revenueAmount:
+    type: integer
+    description: Revenue collected for this. This field is only used in reporting.
+    format: int64
+  quantitySold:
+    type: number
+    description: Quantity sold for this line item. This field is only used in reporting
+  printGroup:
+    description: Optional reference to the print group that this line item belongs to.
+    $ref: ./Reference.yaml

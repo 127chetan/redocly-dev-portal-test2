@@ -1,0 +1,29 @@
+delete:
+  tags:
+    - ORDERS
+  summary: Remove service charge from an order
+  description: ''
+  operationId: order.RemoveServiceCharge
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+    - name: chargeId
+      in: path
+      description: Service Charge Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

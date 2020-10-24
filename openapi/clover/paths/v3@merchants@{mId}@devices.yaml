@@ -1,0 +1,31 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get all devices provisioned to a merchant
+  description: >-
+    Returns a list of all devices that are provisioned to the a merchant. This
+    list can be viewed from the Setup App on the merchant's device or web
+    dashboard (https://www.clover.com/setupapp/m/{mId}/devices).
+  operationId: device.GetMerchantDevices
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [serial, name, merchant.id, merchant.name,
+        deviceTypeName, model, id, deleted_time, orderPrefix]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Device.yaml
+  deprecated: false

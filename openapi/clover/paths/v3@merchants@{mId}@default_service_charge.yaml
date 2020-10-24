@@ -1,0 +1,23 @@
+get:
+  tags:
+    - MERCHANTS
+  summary: Get default service charge for a merchant
+  description: >-
+    The Merchant's default service charge, set via the Setup App
+    (https://www.clover.com/setupapp).
+  operationId: merchant.GetDefaultServiceCharge
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ServiceCharge.yaml
+  deprecated: false

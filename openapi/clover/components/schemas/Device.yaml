@@ -1,0 +1,104 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Name of the device (if entered)
+  model:
+    type: string
+  merchant:
+    $ref: ./Reference.yaml
+  orderPrefix:
+    type: string
+    description: >-
+      A prefix that will be applied to order numbers. This is useful if the
+      merchant and/or customer needs to track which device an order came from.
+  terminalId:
+    type: string
+    description: >-
+      The merchant device's terminal Id. FD-IPG sets the merchant_device
+      terminal Id for LATAM devices
+  terminalPrefix:
+    type: integer
+  serial:
+    type: string
+    description: The device's serial number.
+  buildNumber:
+    type: integer
+    format: int64
+  secureId:
+    type: string
+  buildType:
+    type: string
+    enum:
+      - ENG
+      - USER
+      - USERDEBUG
+  cpuId:
+    type: string
+  imei:
+    type: string
+    description: The IMEI of the device
+  imsi:
+    type: string
+    description: The IMSI of the SIM in the device (if present)
+  simIccid:
+    type: string
+    description: The ICCID of the SIM in the device (if present)
+  deviceCertificate:
+    type: string
+  pedCertificate:
+    type: string
+  deviceTypeName:
+    type: string
+  productName:
+    type: string
+  pinDisabled:
+    type: boolean
+    description: Whether this device has PIN prompt disabled.
+    default: 'false'
+  offlinePayments:
+    type: boolean
+    default: 'false'
+  offlinePaymentsAll:
+    type: boolean
+    default: 'false'
+  offlinePaymentsLimit:
+    type: integer
+    format: int64
+  offlinePaymentsPromptThreshold:
+    type: integer
+    format: int64
+  offlinePaymentsTotalPaymentsLimit:
+    type: integer
+    format: int64
+  offlinePaymentsLimitDefault:
+    type: integer
+    format: int64
+  offlinePaymentsPromptThresholdDefault:
+    type: integer
+    format: int64
+  offlinePaymentsTotalPaymentsLimitDefault:
+    type: integer
+    format: int64
+  offlinePaymentsMaxLimit:
+    type: integer
+    format: int64
+  offlinePaymentsMaxTotalPaymentsLimit:
+    type: integer
+    format: int64
+  showOfflinePayments:
+    type: boolean
+  maxOfflineDays:
+    type: integer
+    format: int64
+  allowStoreAndForward:
+    type: boolean
+  secureReports:
+    type: array
+    items:
+      $ref: ./Reference.yaml
+  bundleIndicator:
+    type: string

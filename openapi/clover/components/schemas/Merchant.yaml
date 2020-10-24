@@ -1,0 +1,17 @@
+required:
+  - name
+  - owner
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  name:
+    type: string
+    description: Name of the merchant
+  owner:
+    description: The account that owns this merchant
+    $ref: ./Employee.yaml
+  address:
+    description: The address of the merchant.
+    $ref: ./Address.yaml

@@ -1,0 +1,12 @@
+required:
+  - amount
+  - name
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  amount:
+    type: integer
+    format: int64

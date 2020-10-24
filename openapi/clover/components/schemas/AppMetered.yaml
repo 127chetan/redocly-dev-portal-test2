@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  amount:
+    type: integer
+    description: >-
+      DEPRECATED: App metered amount. Instead use per country pricing in
+      meteredCountries
+    format: int64
+  action:
+    type: string
+    description: >-
+      DEPRECATED: App metered action. Instead use per country pricing in
+      meteredCountries
+  active:
+    type: boolean
+    description: >-
+      DEPRECATED: App metered active status. Instead use per country pricing in
+      meteredCountries
+  meteredCountries:
+    type: array
+    description: Metered country options for this app metered
+    items:
+      $ref: ./AppMeteredCountry.yaml
+  app:
+    description: Reference to the app this metered belongs to
+    $ref: ./Reference.yaml
+  label:
+    type: string
+    description: A label used to identify this metered action

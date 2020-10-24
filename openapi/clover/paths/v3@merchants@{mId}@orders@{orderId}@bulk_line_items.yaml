@@ -1,0 +1,30 @@
+post:
+  tags:
+    - ORDERS
+  summary: Create multiple line items in bulk
+  description: >-
+    Each item must include a price for the request to succeed. The maximum
+    number of line items per request is 100.
+  operationId: order.BulkCreateLineItems
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: orderId
+      in: path
+      description: Order Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateLineItemsRequest.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

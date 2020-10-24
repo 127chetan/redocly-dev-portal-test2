@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  labelKey:
+    type: string
+    description: Label Key
+  isQsr:
+    type: boolean
+    description: Is for quick service restraunts?
+  isFsr:
+    type: boolean
+    description: Is for full service restraunts?
+  isRetail:
+    type: boolean
+    description: Is for retail stores?

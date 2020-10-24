@@ -1,0 +1,27 @@
+post:
+  tags:
+    - CUSTOMERS
+  summary: Create a phone number for a customer
+  description: Creates a phone number associated to a merchant's customer.
+  operationId: handlers.CreateCustomerPhoneNumber
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/PhoneNumber.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false

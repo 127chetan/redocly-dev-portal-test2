@@ -1,0 +1,19 @@
+required:
+  - name
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+    description: Name of the tip
+  percentage:
+    type: integer
+    description: Suggested tip percentage
+    format: int64
+  amount:
+    type: integer
+    description: Suggested tip amount
+    format: int64
+  isEnabled:
+    type: boolean

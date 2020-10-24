@@ -1,0 +1,6 @@
+type: object
+properties:
+  modifierGroups:
+    type: array
+    items:
+      $ref: ./ModifierGroup.yaml

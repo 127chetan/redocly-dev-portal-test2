@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    description: >-
+      Unique identifier; TBD this is confusing because it's used as either line
+      item id or payment id
+  percentage:
+    type: integer
+    description: Percent of this line item covered by this payment
+    format: int64
+  binName:
+    type: string
+    description: Bin this line item payment was for
+  refunded:
+    type: boolean
+    description: Payment has been refunded

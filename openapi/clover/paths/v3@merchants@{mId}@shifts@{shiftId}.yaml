@@ -1,0 +1,32 @@
+get:
+  tags:
+    - EMPLOYEES
+  summary: Get a single shift
+  description: ''
+  operationId: merchant.GetShift
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: shiftId
+      in: path
+      description: Employee Shift Id
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: 'Expandable fields: [employee, overrideInEmployee, overrideOutEmployee]'
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Shift.yaml
+  deprecated: false

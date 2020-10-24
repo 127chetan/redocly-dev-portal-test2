@@ -1,0 +1,98 @@
+get:
+  tags:
+    - CUSTOMERS
+  summary: Get a single customer
+  description: Returns information for a single customer.
+  operationId: handlers.GetCustomer
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: filter
+      in: query
+      description: >-
+        Filter fields: [customerSince, firstName, lastName, emailAddress,
+        phoneNumber, marketingAllowed, fullName, id, deletedTime]
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [addresses, emailAddresses, phoneNumbers, cards,
+        metadata]
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Customer.yaml
+  deprecated: false
+post:
+  tags:
+    - CUSTOMERS
+  summary: Update a customer
+  description: >-
+    Updates information for a single customer. Only specified fields are
+    overwritten.
+  operationId: handlers.UpdateCustomer
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: expand
+      in: query
+      description: >-
+        Expandable fields: [addresses, emailAddresses, phoneNumbers, cards,
+        metadata]
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Customer.yaml
+  responses:
+    '200':
+      description: ''
+  deprecated: false
+delete:
+  tags:
+    - CUSTOMERS
+  summary: Delete a customer
+  description: Deletes a single customer from a merchant.
+  operationId: handlers.DeleteCustomer
+  parameters:
+    - name: mId
+      in: path
+      description: Merchant Id
+      required: true
+      schema:
+        type: string
+    - name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: ''
+  deprecated: false

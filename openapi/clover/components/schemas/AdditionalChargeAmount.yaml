@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Additional charge id
+  amount:
+    type: integer
+    description: Amount of the additional charge
+    format: int64
+  rate:
+    type: integer
+    description: Percent rate of the additional charge times 10000
+    format: int64
+  type:
+    type: string
+    description: The type of additional charge
+    enum:
+      - INTERAC
+      - CREDIT_SURCHARGE
+      - CONVENIENCE_FEE
+      - INTERAC_V2
