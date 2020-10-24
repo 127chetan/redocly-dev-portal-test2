@@ -1,11 +1,12 @@
 meta:
-  title: Redocly Training
+  title: Clover demo
   description: The best API documentation generator ever.
   siteUrl: https://portal-demo.redoc.ly
-headerIcon: ./images/logo.png
+headerIcon: ./images/clover-logo.svg
 enableToc: true
 oasDefinitions:
   petstore: ./openapi/petstore.yaml
+  clover: ./openapi/clover/openapi.yaml
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css?family=Roboto:300,400,600,700
@@ -27,7 +28,7 @@ nav:
   - search: true
 
 footer:
-  copyrightText: Copyright © Redocly 2019-2020. All right reserved.
+  copyrightText: Copyright © Clover 2019-2020. All right reserved.
   columns:
     - group: Legal
       items:
