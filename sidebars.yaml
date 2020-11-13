@@ -41,7 +41,7 @@ training:
   - group: Petstore reference
     expanded: false
     pages:
-      - page: openapi/docs.json
+      - page: openapi/reference.page.yaml/*
 
   - group: Admin
     expanded: true
